@@ -1,16 +1,14 @@
-import Hero from "@/components/hero";
-import ConnectSupabaseSteps from "@/components/tutorial/connect-supabase-steps";
-import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+// app/page.tsx
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <>
-      <Hero />
-      <main className="flex-1 flex flex-col gap-6 px-4">
-        <h2 className="font-medium text-xl mb-4">Next steps</h2>
-        {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
+    <div className="min-h-screen text-white max-w-screen-2xl mx-auto">
+      <Header />
+      <main>
+        <HeroSection />
       </main>
-    </>
+    </div>
   );
 }
