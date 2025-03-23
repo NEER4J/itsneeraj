@@ -4,11 +4,12 @@ const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode
   <Link
     href={href}
     aria-label={label}
-    className="transform hover:scale-105 transition-transform duration-300 ease-out flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
+    className="transform hover:scale-105 transition-transform duration-300 ease-out flex items-center gap-2 px-4 py-2 rounded-full border border-white/10  "
     target="_blank"
     rel="noopener noreferrer"
   >
     {icon}
+    <span className="text-sm">{label}</span>
   </Link>
 );
 
@@ -34,7 +35,7 @@ const InstagramIcon = () => (
 
 const SocialLinks = () => {
   return (
-    <div className="flex mt-2 sm:mt-0 gap-4 items-center">
+    <div className="flex mt-2 sm:mt-0 gap-4 items-center flex-wrap">
       <SocialLink href="https://github.com/NEER4J" icon={<GithubIcon />} label="GitHub" />
       <SocialLink href="https://www.linkedin.com/in/neeraj-kumar-sharm-design/" icon={<LinkedinIcon />} label="LinkedIn" />
       <SocialLink href="https://www.instagram.com/neerajsharma.__/" icon={<InstagramIcon />} label="Instagram" />

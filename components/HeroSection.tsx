@@ -37,7 +37,7 @@ const HeroSection = () => {
           <motion.div variants={item} className="md:col-span-3">
             <h1 className="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight lg:text-7xl/tight font-bold mb-7 text-gray-300">
               Hey there! <InteractiveEmoji /> <span className="text-white">I'm Neeraj</span>,
-              A Web Designer & Developer
+              A web designer & developer
             </h1>
           </motion.div>
 

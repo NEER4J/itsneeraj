@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 
 const AboutSection = () => {
     const container = {
@@ -22,7 +20,7 @@ const AboutSection = () => {
     };
 
     return (
-        <section className="">
+        <section>
 
             <motion.div
                 variants={container}
@@ -37,7 +35,7 @@ const AboutSection = () => {
                 >
                     Technologies, topics, or tools that I worked with
                 </motion.p>
-                <div className="flex flex-col lg:flex-row gap-8 relative">
+                <div className="flex flex-col lg:flex-row gap-4 relative">
                     {/* Left Content */}
                     <div className="flex-1">
 
@@ -59,7 +57,7 @@ const AboutSection = () => {
                             {/* Back-end Card */}
                             <motion.div
                                 variants={item}
-                                className="rounded-[40px] p-8 border border-gray-500 rounded-4xl w-1/2 mb-4"
+                                className="rounded-[40px] p-8 border border-gray-500 rounded-4xl w-1/2 mb-4 "
                             >
                                 <h2 className="text-xl font-semibold mb-3">Back-end</h2>
                                 <p className="text-lg text-gray-400">
@@ -82,9 +80,9 @@ const AboutSection = () => {
                             {/* Design Tools Card*/}
                             <motion.div
                                 variants={item}
-                                className="rounded-[40px] p-8 border border-gray-500 rounded-4xl w-1/1 w-full mb-4"
+                                className="rounded-[40px] p-8 border border-gray-500 rounded-4xl w-1/1 w-full mb-0 lg:mb-4 "
                             >
-                                <h2 className="text-xl font-semibold mb-3">Design Tools</h2>
+                                <h2 className="text-xl font-semibold mb-3">Design tools</h2>
                                 <p className="text-lg text-gray-400">
                                     Figma / Adobe XD / LottieFiles / Spline / Adobe Illustrator
                                 </p>
@@ -106,7 +104,7 @@ const AboutSection = () => {
 
                             <motion.div
                                 variants={item}
-                                className="rounded-[40px] p-8 border border-gray-500 rounded-4xl w-1/1 w-full mb-4"
+                                className="rounded-[40px] p-8 border border-gray-500 rounded-4xl w-1/1 w-full mb-4 "
                             >
                                 <h2 className="text-xl font-semibold mb-3">Workflow & Productivity</h2>
                                 <p className="text-lg text-gray-400">
