@@ -1,14 +1,14 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Neeraj Sharma | Full-stack Developer",
-  description: "Portfolio of Neeraj Sharma, a full-stack developer focused on maintainable and clean code.",
+  title: "Neeraj Sharma | Front End - Developer",
+  description: "I build accessible, pixel-perfect digital experiences for the web.",
 };
+
+
+
 
 export default function RootLayout({
   children,
@@ -17,8 +17,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-white antialiased`}>
-        {children}
+      <body className="text-white antialiased">
+        <div className="rainbo-sec">
+          <div className='rainbow'></div>
+          <div className='rainbow'></div>
+          <div className='rainbow'></div>
+          <div className='rainbow'></div>
+          <div className='rainbow'></div>
+          <div className='rainbow'></div>
+      
+          <div className='h'></div>
+          <div className='v'></div>
+        </div>
+
+        <main className="relative z-[2]">
+          {children}
+        </main>
       </body>
     </html>
   );

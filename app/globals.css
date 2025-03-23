@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 @layer base {
   :root {
     --foreground: 0 0% 3.9%;
@@ -64,5 +67,103 @@
   body {
     @apply bg-background text-foreground;
     background-color: #121212;
+    opacity: 1;
+    background-image:  linear-gradient(#121212 1px, transparent 1px), linear-gradient(to right, #000000 1px, #121212 1px);
+    background-size: 90px 140px; 
+    /* background-image: radial-gradient(#ffffffb7 1px, #121212 0.5px);
+    background-size: 100px 100px; */
+    font-family: "Boldonse", system-ui !important;
+    font-weight: 400;
+    font-style: normal;
+
+    /* overflow-x: hidden !important; */
+
   }
+
+  .side-menu{
+    background-color: #121212;
+  }
+
+  
+  .rainbow {
+    height: 100vh;
+    width: 0;
+    top: -100px;
+    position: fixed;
+    transform: rotate(30deg);
+    transform-origin: top right;
+    opacity: 0.05;
+    transition: 0.3s !important;
+  }
+  
+  .rainbow:nth-child(1) {
+    box-shadow: -200px 0 150px 90px rgba(255, 255, 255, 0.644), -70px 0 140px 70px #999999, 0 0 140px 70px #666666, 70px 0 140px 70px #333333, 200px 0 150px 90px rgb(255, 255, 255);
+    animation: 44.1s linear infinite slide;
+    animation-delay: -1.8s;
+  }
+  
+  .rainbow:nth-child(2) {
+    box-shadow: -200px 0 150px 90px white, -70px 0 140px 70px #7c7c7c, 0 0 140px 70px #999999, 70px 0 140px 70px #666666, 200px 0 150px 90px white;
+    animation: 43.2s linear infinite slide;
+    animation-delay: -8.64s;
+  }
+  
+  .rainbow:nth-child(3) {
+    box-shadow: -200px 0 150px 90px white, -70px 0 140px 70px #666666, 0 0 140px 70px #999999, 70px 0 140px 70px #333333, 200px 0 150px 90px white;
+    animation: 42.3s linear infinite slide;
+    animation-delay: -15.48s;
+  }
+  
+  .rainbow:nth-child(4) {
+    box-shadow: -200px 0 150px 90px white, -70px 0 140px 70px #666666, 0 0 140px 70px #333333, 70px 0 140px 70px #999999, 200px 0 150px 90px white;
+    animation: 41.4s linear infinite slide;
+    animation-delay: -22.32s;
+  }
+  
+  .rainbow:nth-child(5) {
+    box-shadow: -130px 0 140px 70px white, -50px 0 50px 25px #333333, 0 0 50px 25px #999999, 50px 0 50px 25px #666666, 130px 0 140px 70px white;
+    animation: 39.6s linear infinite slide;
+    animation-delay: -29.16s;
+  }
+  
+  .rainbow:nth-child(5) {
+    box-shadow: -130px 0 140px 70px white, -50px 0 50px 25px #333333, 0 0 50px 25px #999999, 50px 0 50px 25px #666666, 130px 0 140px 70px white;
+    animation: 38.6s linear infinite slide;
+    animation-delay: -35.16s;
+  }
+  
+  @keyframes slide {
+    from {
+      right: -0vw;
+    }
+    to {
+      right: 100vw;
+    }
+  }
+  
+  .h {
+    box-shadow: 0 0 50vh 40vh #121212;
+    width: 100vw;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .v {
+    box-shadow: 0 0 35vw 25vw #121212;
+    width: 0;
+    height: 100vh;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
 }
+
+
+
+
+ 

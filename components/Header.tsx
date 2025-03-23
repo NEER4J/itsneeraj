@@ -38,11 +38,13 @@ const Header = () => {
   return (
     <header className="py-10 px-6 md:px-8 flex justify-between items-center relative z-50">
 
+
+
 <div className="header-left flex items-center gap-10">
       {/* Logo/Name */}
-      <div className="font-bold text-2xl uppercase tracking-wide">
+      <div className="font-bold text-2xl tracking-wide">
         <Link href="/" className="hover:opacity-80 transition-opacity">
-          NEERAJ
+          Neeraj Sharama
         </Link>
       </div>
 
@@ -67,7 +69,7 @@ const Header = () => {
       <div className="hidden md:block">
         <Link 
           href="/contact" 
-          className="hidden flex items-center gap-2 bg-white hover:bg-gray-200 text-gray-800 rounded-full px-5 py-2 transform hover:scale-105 transition-transform duration-300 ease-out"
+          className="flex items-center gap-2 bg-white hover:bg-gray-200 text-gray-800 rounded-full px-5 py-2 transform hover:scale-105 transition-transform duration-300 ease-out"
         >
           <span>Let's Talk</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,13 +103,22 @@ const Header = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            className="fixed top-0 right-0 bottom-0 w-[250px] bg-gray-900 z-40 md:hidden flex flex-col"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-          >
+          <motion.div
+          className="fixed top-0 right-0 bottom-0 w-[250px] z-40 md:hidden flex flex-col side-menu"
+          initial={{ x: '100%', opacity: 1 }} // Start off-screen and fully transparent
+          animate={{ x: 0, opacity: 1 }} // Slide in and become fully visible
+          exit={{
+            x: '100%', // Slide out to the right
+            opacity: 1, // Fade out
+            transition: {
+              type: 'spring', // Use spring for the rubberband effect
+              stiffness: 300, // Controls the "bounciness"
+              damping: 20, // Controls how quickly the motion slows down
+              mass: 1, // Controls the weight of the object
+            },
+          }}
+          transition={{ type: 'tween', duration: 0.3 }} // Smooth slide-in animation
+        >
             <div className="pt-20 px-6 flex flex-col h-full">
               <nav className="flex flex-col space-y-6">
                 {navItems.map((item) => (
