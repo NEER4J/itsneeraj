@@ -25,7 +25,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="px-6 md:px-8 md:py-20 py-5">
+    <section className="px-6 md:px-8 md:py-20 py-5 mt-28">
       <div className="">
         <motion.div
           className="gap-3 md:gap-10 md:mb-12 mb-8"

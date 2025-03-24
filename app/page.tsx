@@ -9,9 +9,15 @@ export default function Home() {
     <main className="min-h-screen text-white max-w-screen-xl mx-auto" >
       <Header />
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
+      <div id="about">
+        <AboutSection />
+      </div>
+      <div id="projects">
+        <ProjectsSection />
+      </div>
+      <div id="work">
+        <ExperienceSection />
+      </div>
     </main>
   );
 }

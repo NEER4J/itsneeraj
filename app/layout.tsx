@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import LanguageLoader from "@/components/LanguageLoader";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Neeraj Sharma |  Web Developer & Designer",
@@ -16,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="text-white antialiased">
+        <LanguageLoader />
         <SmoothScroll>
           <div className="rainbo-sec">
             <div className='rainbow'></div>
@@ -30,7 +33,10 @@ export default function RootLayout({
 
           <main className="relative z-[2]">
             {children}
+            <Footer />
           </main>
+          
+          
         </SmoothScroll>
       </body>
     </html>

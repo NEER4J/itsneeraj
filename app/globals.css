@@ -75,6 +75,7 @@
     font-family: "Boldonse", system-ui !important;
     font-weight: 400;
     font-style: normal;
+    scroll-behavior: smooth;
 
     /* overflow-x: hidden !important; */
 
