@@ -135,7 +135,7 @@ const AboutSection = () => {
                                         </div>
 
                                         <div className="inset-0 max-w-44">
-                                            <img className="rounded-[30px] object-cover" src="/neeraj-bw.jpg" alt="" />
+                                            <img className="rounded-[30px] object-cover" src="/neeraj-standerd.jpg" alt="" />
                                         </div>
 
                                     </div>

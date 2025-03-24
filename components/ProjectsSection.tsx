@@ -29,63 +29,58 @@ const ProjectsSection = () => {
       id: 1,
       title: "Apstic",
       subtitle: "Web & App Development Agency",
-      description: "Apstic is a digital agency that helps businesses build powerful web and mobile applications, enhance their online presence, and optimize for search engines. As the founder, I have been involved in branding, UI/UX, development, and SEO strategies to deliver high-quality digital solutions.",
-      longDescription: "With a strong focus on innovation and user experience, Apstic combines modern technologies like Next.js, React, and Supabase to create seamless and scalable solutions. From startups to enterprises, our goal is to craft digital products that drive growth and engagement.",
+      description: "Apstic is a digital agency I founded to help businesses establish a strong online presence with cutting-edge web and mobile solutions. From branding and UI/UX to development and SEO, I’ve been deeply involved in crafting digital experiences that not only look great but also perform seamlessly. The challenge was to create scalable, high-performance websites and applications while ensuring top-notch design and discoverability.",
       tags: ["Branding", "UI/UX", "Web Development", "App Development", "SEO"],
-      link: "https://example.com/apstic",
-      github: "https://github.com/username/apstic"
+      github: "https://apstic.com/",
+      images: "/apstic-min.jpg"
     },
     {
       id: 2,
       title: "Trekova",
       subtitle: "Travel Experience Marketplace",
-      description: "Trekova is an upcoming platform designed to revolutionize the way people discover and book unique travel experiences. The platform connects travelers with experience providers, allowing them to book curated activities, treks, and adventure experiences.",
-      longDescription: "By leveraging modern technology, Trekova aims to bridge the gap between travelers and local guides, providing opportunities for both adventure seekers and service providers. The platform will be available on desktop, Android, and iOS, offering a smooth and intuitive booking experience.",
-      tags: ["Branding", "Mobile App", "UI/UX", "Design System"],
-      link: "https://example.com/trekova",
-      github: "https://github.com/username/trekova"
+      description: "Trekova is an innovative platform designed to connect travelers with unique experiences. My role involved creating an intuitive UI/UX that simplifies trip bookings while maintaining a strong visual identity. One of the biggest challenges was balancing functionality with aesthetics, ensuring the platform was both easy to use and visually engaging. The result is a seamless marketplace that enhances adventure planning for travelers worldwide.",
+      tags: ["Branding", "Mobile App", "UI/UX", "Design System", "Comming Soon"],
+      github: "https://trekova.com/",
+      images: "trekova-min.jpg"
     },
     {
       id: 3,
       title: "Astonsys",
       subtitle: "Helping a Global QA Company Go Digital",
-      description: "Astonsys is a global software testing and quality assurance company that needed a digital transformation to strengthen its online presence. I contributed to the project by refining the company's branding, designing an intuitive UI/UX, and developing a robust design system for their platform.",
-      longDescription: "Through a well-structured design approach, we created a user-friendly and professional interface that aligns with the brand's credibility in the QA industry. The result was a modern, responsive website that effectively communicates Astonsys' expertise and services.",
+      description: "Astonsys, a global software testing company, needed a digital transformation to strengthen its brand and online presence. My challenge was to modernize their platform with a cohesive design system while ensuring a professional and intuitive UI/UX. I worked on branding and web development to create a seamless experience that reflects their expertise in the QA industry, ultimately making their services more accessible and engaging.",
       tags: ["Branding", "UI/UX", "Design System", "Web Development"],
-      link: "https://example.com/astonsys",
-      github: "https://github.com/username/astonsys"
+      github: "https://astonsys.com/",
+      images: "astonsys-min.jpg"
     },
     {
       id: 4,
       title: "Updoer Technology",
       subtitle: "Elevating Digital Solutions",
-      description: "Updoer Technology is an IT services and software testing company that wanted to refine its branding and enhance its digital identity. I played a key role in shaping their online presence by working on UI/UX, branding, and web development.",
-      longDescription: "By creating a clean and modern interface, we helped Updoer Technology stand out in the competitive IT space. The project involved revamping their website, optimizing user flows, and ensuring a consistent brand experience across digital platforms.",
+      description: "Updoer Technology, an IT services and software testing company, needed a fresh approach to their branding and digital identity. I played a crucial role in refining their online presence, tackling challenges such as streamlining UI/UX for better engagement and ensuring their website effectively communicates their services. Through well-thought-out branding and design improvements, we created a strong, impactful digital experience.",
       tags: ["Branding", "UI/UX", "Digital Transformation", "Web Development"],
-      link: "https://example.com/updoer",
-      github: "https://github.com/username/updoer"
+      github: "https://www.updoertechnology.com/",
+      images: "updoer-min.jpg"
     },
     {
       id: 5,
       title: "UK Postcode API",
       subtitle: "Simplifying Address Lookup",
-      description: "This project involved developing the frontend for a UK postcode lookup tool, which helps developers and businesses quickly retrieve accurate address information. The goal was to create a fast, intuitive, and well-branded interface that integrates seamlessly with the API.",
-      longDescription: "I worked on UI/UX improvements, frontend development, and branding to make the tool user-friendly and visually appealing. The final product offers a smooth and efficient experience, making address lookup easier for businesses and developers alike.",
+      description: "This project focused on developing a high-performance frontend for a UK postcode lookup tool. The challenge was to create a lightning-fast, user-friendly interface that seamlessly integrates with the API while maintaining a sleek, professional design. My work involved optimizing UI/UX to enhance usability, ensuring that businesses and developers could efficiently retrieve accurate address information with minimal friction.",
       tags: ["Branding", "UI/UX", "Web Development", "API Integration"],
-      link: "https://example.com/postcode-api",
-      github: "https://github.com/username/postcode-api"
+      github: "https://github.com/NEER4J/postcode-frontend",
+      images: "postcode-min.jpg"
     },
     {
       id: 6,
-      title: "Quote Form Builder",
+      title: "Nu Home - Quote Form Builder",
       subtitle: "Future SaaS Tool",
-      description: "The Quote Form Builder is a dynamic tool designed to help businesses generate customized quotes through an intuitive form interface. It allows users to create, edit, and share quote forms tailored to their specific services.",
-      longDescription: "This project has the potential to be turned into a SaaS platform, enabling businesses to automate their quotation process while maintaining a professional and branded experience. The goal is to provide a user-friendly solution that enhances efficiency and customer engagement.",
+      description: "The Quote Form Builder is a tool I designed to streamline how businesses create and share custom quotes. My focus was on making the form creation process intuitive and adaptable, enabling users to generate professional, tailored quotes effortlessly. I tackled challenges such as UI/UX optimization and automation, ensuring that the tool is both powerful and easy to use—laying the groundwork for its evolution into a SaaS platform.",
       tags: ["Web Development", "UI/UX", "SaaS", "Automation"],
-      link: "https://example.com/quote-builder",
-      github: "https://github.com/username/quote-builder"
+      github: "https://github.com/NEER4J/nu-home",
+      images: "nu-home-min.jpg"
     }
-  ];
+];
+
 
   return (
     <section className="py-0 lg:py-5 mb-16 lg:mb-6">
@@ -103,16 +98,16 @@ const ProjectsSection = () => {
           Projects
         </motion.h2>
 
-        <div className="space-y-16">
-          {projects.map((project, index) => (
+        <div className="space-y-16 flex flex-wrap gap-10 justify-start">
+          {projects.map((project) => (
             <motion.div 
               key={project.id}
               variants={item}
-              className="border-gray-500 border rounded-[40px] overflow-hidden " style={{ margin: "0", marginBottom: "30px"}}
+              className="border-gray-500 border rounded-[40px] overflow-hidden m-0 w-1/1 md:w-[calc(50%-20px)]" style={{margin: 0}}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-0  p-8 md:p-14">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 p-8 md:p-14">
                 {/* Project details - always on the left */}
-                <div className="lg:col-span-5">
+                <div className="lg:col-span-12">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                     {project.title}
                   </h3>
@@ -151,55 +146,16 @@ const ProjectsSection = () => {
                         />
                       </Link>
                     )}
-                    
-                    {project.link && (
-                      <Link 
-                        href={project.link} 
-                        target="_blank" 
-                        className="group flex items-center gap-2"
-                      >
-                        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white transition-colors duration-300">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
-                        </div>
-                      </Link>
-                    )}
+                  
                   </div>
                 </div>
                 
                 {/* Project images - always on the right */}
-                <div className="lg:col-span-7 relative h-[300px] md:h-[299px]  overflow-hidden">
+                <div className="lg:col-span-12 relative  overflow-hidden mt-8">
                   <div className="h-full inset-0 flex items-center justify-center">
-                    <div className="flex h-full w-full">
-                      {/* Device mockups with hover effect - first device expanded by default */}
-                      {[0, 1, 2].map((deviceIndex) => {
-                        const isDefaultExpanded = !hoveredDevice && deviceIndex === 0;
-                        const isHovered = hoveredDevice?.projectId === project.id && hoveredDevice?.deviceIndex === deviceIndex;
-                        const shouldExpand = isHovered || isDefaultExpanded;
-                        
-                        return (
-                          <div 
-                            key={deviceIndex}
-                            className={`h-full transition-all duration-500 ease-in-out flex items-center justify-center ${
-                              shouldExpand ? 'w-2/4' : 'w-1/4'
-                            }`}
-                            onMouseEnter={() => setHoveredDevice({ projectId: project.id, deviceIndex })}
-                            onMouseLeave={() => setHoveredDevice(null)}
-                          >
-                            <div 
-                              className={`h-[80%] ${deviceIndex === 1 ? 'w-[90%]' : 'w-[80%]'} 
-                                bg-neutral-800 rounded-lg flex items-center justify-center transition-all duration-500
-                                ${shouldExpand ? '' : 'blur-[2px] opacity-70'}`}
-                            >
-                              <span className="text-neutral-600 text-sm">
-                                {deviceIndex === 0 ? 'Mobile' : deviceIndex === 1 ? 'Desktop' : 'Tablet'}
-                              </span>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                  
+                  <img src={project.images} alt="" className="rounded-2xl" />
+
                   </div>
                 </div>
               </div>
