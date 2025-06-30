@@ -63,7 +63,7 @@ const HeroSection = () => {
             </Button>
 
             <Button
-              href="/neeraj_cv_2025.pdf"
+              href="/Neeraj_CV_2025.pdf"
               variant="download"
               target="_blank"
               download
