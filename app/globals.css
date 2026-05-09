@@ -1,26 +1,324 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ──────────────────────────────────────────────────────────────
+   THEME SYSTEM
+   Themes set CSS variables on <html data-theme="...">.
+   Default (no attribute) = dark.
+   Switching is handled in components/theme-provider.tsx.
+   ────────────────────────────────────────────────────────────── */
+
+:root,
+[data-theme="dark"] {
+  --bg: #050506;
+  --bg-elevated: #18181c;
+  --fg: #f3f3f1;
+  --fg-soft: #c8c8c4;
+  --muted: #6e6e72;
+  --border: #232328;
+  --accent: #f3f3f1;
+  --accent-fg: #0b0b0c;
+  --note-bg: #fde68a;
+  --note-fg: #1a1300;
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 24px rgba(0, 0, 0, 0.45);
+  --font: var(--font-geist-sans);
+}
+
+[data-theme="light"] {
+  --bg: #ececef;
+  --bg-elevated: #ffffff;
+  --fg: #18181b;
+  --fg-soft: #3f3f46;
+  --muted: #71717a;
+  --border: #d4d4d8;
+  --accent: #18181b;
+  --accent-fg: #ffffff;
+  --note-bg: #fff3a8;
+  --note-fg: #1f1700;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 4px 24px rgba(0, 0, 0, 0.06);
+  --font: var(--font-geist-sans);
+}
+
+[data-theme="terminal"] {
+  --bg: #050a05;
+  --bg-elevated: #0a140a;
+  --fg: #4dff7a;
+  --fg-soft: #2cd860;
+  --muted: #1f6e3a;
+  --border: #1a3a22;
+  --accent: #4dff7a;
+  --accent-fg: #050a05;
+  --note-bg: #1a3a22;
+  --note-fg: #4dff7a;
+  --shadow: 0 0 0 1px rgba(77, 255, 122, 0.12), 0 0 24px rgba(77, 255, 122, 0.18);
+  --font: var(--font-geist-mono);
+}
+
+[data-theme="cyber"] {
+  --bg: #e6d6a8;
+  --bg-elevated: #f3e8cc;
+  --fg: #18542a;
+  --fg-soft: #2a6e3d;
+  --muted: #6b8a72;
+  --border: #18542a;
+  --accent: #d52518;
+  --accent-fg: #f3e8cc;
+  --note-bg: #b8d2e3;
+  --note-fg: #1d3557;
+  --shadow: 0 1px 0 rgba(24, 84, 42, 0.08), 0 8px 28px rgba(24, 84, 42, 0.18);
+  --font: var(--font-geist-sans);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-fg-soft: var(--fg-soft);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-note-bg: var(--note-bg);
+  --color-note-fg: var(--note-fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+html {
+  height: 100%;
+  /* Mobile dock height (pill + outer padding + safe-area). Generous so the
+     dock never overlaps the last bit of scrollable content. Override on
+     desktop to 0 so we don't waste space when the dock is hidden. */
+  --dock-h: calc(78px + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  html {
+    --dock-h: 0px;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+}
+
+/* Reserve room for the floating mobile dock + iOS home indicator. */
+.pb-dock {
+  padding-bottom: var(--dock-h);
+}
+.scroll-pb-dock {
+  scroll-padding-bottom: var(--dock-h);
+}
+
+/* Prevent iOS Safari from auto-zooming on inputs with font-size < 16px. */
+@media (max-width: 767px) {
+  input,
+  textarea,
+  select {
+    font-size: max(16px, 1em);
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+/* CRT-ish flicker only on terminal theme */
+[data-theme="terminal"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+  z-index: 100;
+}
+
+/* Hide scrollbars but keep scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tiny utility used in chat bubble + sticky note tilt */
+.tilt-1 { transform: rotate(-1.2deg); }
+.tilt-2 { transform: rotate(1.6deg); }
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.blink { animation: blink 1.05s step-end infinite; }
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-3px); opacity: 1; }
+}
+.bounce-dot { animation: bounce-dot 1.2s ease-in-out infinite; }
+.bounce-dot:nth-child(2) { animation-delay: 0.15s; }
+.bounce-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes pet-breathe {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(-1px) scaleY(1.015); }
+}
+.pet-breathe { animation: pet-breathe 2.6s ease-in-out infinite; transform-origin: bottom center; }
+
+@keyframes pet-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.5px); }
+}
+.pet-bob { animation: pet-bob 0.45s ease-in-out infinite; }
+
+@keyframes pet-snore {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(0.5px) scaleY(0.98); }
+}
+.pet-snore { animation: pet-snore 4s ease-in-out infinite; transform-origin: bottom center; }
+
+@keyframes pet-hover {
+  0%, 100% { transform: translateY(-0.5px) rotate(-0.4deg); }
+  50% { transform: translateY(0.5px) rotate(0.4deg); }
+}
+.pet-hover { animation: pet-hover 2.2s ease-in-out infinite; transform-origin: center; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(14deg); }
+  50% { transform: rotate(-4deg); }
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-enter {
+  transform-origin: center;
+  animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+[data-theme="cyber"] body {
+  background: #e6d6a8;
+}
+
+/* Retro 70s palette — bold blocks of color
+   Sunshine #ffc926 · Cream #f3e8cc · Crisp Carrot #f96015
+   Tomato Burst #d52518 · Forest Green #18542a · Kiwi #9ABC05 */
+
+/* Light blocks: dark forest text reads well */
+[data-theme="cyber"] [data-card-accent="rainbow"] {
+  background-color: #f3e8cc !important;
+}
+[data-theme="cyber"] [data-card-accent="blue"] {
+  background-color: #ffc926 !important;
+}
+
+/* Dark/saturated blocks (carrot, forest, tomato, navy chat): flip the ink to cream */
+[data-theme="cyber"] [data-card-accent="orange"],
+[data-theme="cyber"] [data-card-accent="green"],
+[data-theme="cyber"] [data-card-accent="purple"],
+[data-theme="cyber"] [data-card-accent="yellow"] {
+  --fg: #f3e8cc;
+  --fg-soft: rgba(243, 232, 204, 0.85);
+  --muted: rgba(243, 232, 204, 0.6);
+  --border: rgba(243, 232, 204, 0.22);
+  --accent: #ffc926;
+  --accent-fg: #18542a;
+  color: #f3e8cc;
+}
+
+[data-theme="cyber"] [data-card-accent="red"] {
+  background-color: #9ABC05 !important;
+}
+[data-theme="cyber"] [data-card-accent="orange"] {
+  background-color: #f96015 !important;
+}
+[data-theme="cyber"] [data-card-accent="green"] {
+  background-color: #18542a !important;
+}
+[data-theme="cyber"] [data-card-accent="purple"] {
+  background-color: #d52518 !important;
+}
+[data-theme="cyber"] [data-card-accent="yellow"] {
+  background-color: #1d3557 !important;
+}
+
+/* Inside bold cards, child tiles using bg-bg / bg-bg-elevated would otherwise
+   paint cream squares on top of the bold color. Make them a translucent ink
+   layer instead so the parent color shows through and inner content stays
+   visually grouped — light wash on dark cards, dark wash on light cards. */
+[data-theme="cyber"] [data-card-accent="orange"] .bg-bg,
+[data-theme="cyber"] [data-card-accent="orange"] .bg-bg-elevated,
+[data-theme="cyber"] [data-card-accent="green"] .bg-bg,
+[data-theme="cyber"] [data-card-accent="green"] .bg-bg-elevated,
+[data-theme="cyber"] [data-card-accent="purple"] .bg-bg,
+[data-theme="cyber"] [data-card-accent="purple"] .bg-bg-elevated {
+  background-color: rgba(243, 232, 204, 0.16) !important;
+}
+
+[data-theme="cyber"] [data-card-accent="red"] .bg-bg,
+[data-theme="cyber"] [data-card-accent="red"] .bg-bg-elevated,
+[data-theme="cyber"] [data-card-accent="blue"] .bg-bg,
+[data-theme="cyber"] [data-card-accent="blue"] .bg-bg-elevated {
+  background-color: rgba(24, 84, 42, 0.1) !important;
+}
+
+/* Chat (navy) — form controls and the "new" pill need full-contrast cream
+   surfaces with crisp navy ink, not a faint wash. Reset the text vars
+   inside these pills so border/placeholder/icon all read against cream. */
+[data-theme="cyber"] [data-card-accent="yellow"] .bg-bg,
+[data-theme="cyber"] [data-card-accent="yellow"] .bg-bg-elevated {
+  background-color: #f3e8cc !important;
+  --fg: #1d3557;
+  --fg-soft: rgba(29, 53, 87, 0.85);
+  --muted: rgba(29, 53, 87, 0.6);
+  --border: #1d3557;
+  color: #1d3557;
 }
