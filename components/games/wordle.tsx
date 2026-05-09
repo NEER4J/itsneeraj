@@ -183,7 +183,7 @@ export function WordleGame({ compact = false }: { compact?: boolean }) {
           <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
             type
             <KeyCap>a</KeyCap>
-            <span>—</span>
+            <span>to</span>
             <KeyCap>z</KeyCap>
             <span className="px-0.5">·</span>
             <KeyCap wide>enter</KeyCap>

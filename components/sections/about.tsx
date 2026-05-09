@@ -77,8 +77,8 @@ export function About() {
         <ul className="space-y-3 text-[15px] text-fg-soft leading-[1.65]">
           <li>Get the smallest useful version in front of real users early, then refine from what they actually do.</li>
           <li>
-            Treat AI features like product features — reliable, observable, and worth the
-            wait.
+            Treat AI features like product features. Reliable, observable, and worth
+            the wait.
           </li>
           <li>
             Stay close to the whole loop: design, architecture, build, and the quiet

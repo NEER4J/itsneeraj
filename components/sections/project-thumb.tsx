@@ -50,7 +50,7 @@ export function ProjectThumb({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={thumb.image}
-          alt={name}
+          alt={`Screenshot of ${name}`}
           loading="lazy"
           decoding="async"
           className="block h-auto w-full select-none"

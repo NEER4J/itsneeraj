@@ -26,7 +26,7 @@ export const HERO_BY_AUDIENCE: Record<AudienceId, string> = {
     "I'm Neeraj. An engineer with design taste. I care how it looks and reads, not only what it does.",
 };
 
-export const HERO_BODY = `Currently building Docsiv — an AI document workspace for agencies, consultants, and creative teams. Also leading engineering at Virtual Xcellence on Govgrant.ca and SpeedIQ. I work in short loops, with real users in the room, on AI that's still useful on day thirty.`;
+export const HERO_BODY = `Currently building Docsiv, an AI document workspace for agencies, consultants, and creative teams. Also leading engineering at Virtual Xcellence on Govgrant.ca and SpeedIQ. I work in short loops, with real users in the room, on AI that's still useful on day thirty.`;
 
 export type PatternId = "dots" | "lines" | "grid" | "stripes" | "checks";
 
@@ -198,7 +198,7 @@ export const STORY = [
     when: "2025",
     where: "Virtual Xcellence",
     what:
-      "Moved fully into AI SaaS. Currently building Docsiv — the main focus. Also leading Govgrant.ca and SpeedIQ at Virtual Xcellence.",
+      "Moved fully into AI SaaS. Currently building Docsiv, which is the main focus. Also leading Govgrant.ca and SpeedIQ at Virtual Xcellence.",
   },
 ];
 
@@ -213,12 +213,12 @@ A full-stack engineer with five years of production experience, currently buildi
 
 ## Current
 
-**The headline: he is currently building Docsiv. This is the main project — lead with it whenever someone asks what he's working on.**
+**The headline: he is currently building Docsiv. This is the main project. Lead with it whenever someone asks what he's working on.**
 
-- **Docsiv** (https://docsiv.com) — currently building. An AI document workspace for agencies, consultants, and creative teams. Generates proposals, decks, contracts, sheets, and canvases from a prompt; auto-applies the client's brand kit (logos, colors, typography, voice); branded client portals on custom domains; threaded comments and version history; document analytics; e-signature; credit-based billing. Multi-tenant from day one. Pitch line: "from prompt to client inbox in 30 minutes."
+- **Docsiv** (https://docsiv.com): currently building. An AI document workspace for agencies, consultants, and creative teams. Generates proposals, decks, contracts, sheets, and canvases from a prompt; auto-applies the client's brand kit (logos, colors, typography, voice); branded client portals on custom domains; threaded comments and version history; document analytics; e-signature; credit-based billing. Multi-tenant from day one. Pitch line: "from prompt to client inbox in 30 minutes."
 - Also leading engineering at Virtual Xcellence on:
-  - Govgrant.ca — RAG-based grant matching for Canadian businesses, with a scraper pipeline that keeps 300+ grants current daily, plus full subscription billing. https://govgrant.ca
-  - SpeedIQ — a multi-tenant WhatsApp and email marketing platform built on the Meta Business API with embedded signup.
+  - Govgrant.ca: RAG-based grant matching for Canadian businesses, with a scraper pipeline that keeps 300+ grants current daily, plus full subscription billing. https://govgrant.ca
+  - SpeedIQ: a multi-tenant WhatsApp and email marketing platform built on the Meta Business API with embedded signup.
 
 ## Stack
 - Frontend: Next.js, React, TypeScript, Tailwind, Shadcn UI, Framer Motion, GSAP
@@ -229,12 +229,12 @@ A full-stack engineer with five years of production experience, currently buildi
 - Design: Figma, Adobe XD, Spline, LottieFiles, Illustrator
 
 ## Selected work
-1. **Docsiv** (2025) — an AI document workspace for agencies, consultants, and creative teams. Proposal, deck, contract, sheet, and canvas editors with auto-applied brand kits, branded client portals, multi-tenant, credit-based billing. **Currently building, this is the main one.**
-2. Govgrant.ca (2025) — RAG grant matching, 300+ grants scraped daily, led the engineering top to bottom.
-3. SpeedIQ (2025) — WhatsApp and email marketing for teams.
-4. **Apstic** (https://apstic.com, 2025) — an AI automation studio. Builds custom workflows that wire CRMs, e-commerce, accounting, and comms tools together: automated lead replies, multi-channel ops across WhatsApp, Slack, and Discord, browser automation, and real-time dashboards. Also home to OpenClaw, a local-first AI assistant that runs on-device.
-5. Trade Business School (2023) — a multi-tenant SaaS for trades education.
-6. UK Postcode API (2022) — auth, rate limiting, usage analytics, dashboard.
+1. **Docsiv** (2025): an AI document workspace for agencies, consultants, and creative teams. Proposal, deck, contract, sheet, and canvas editors with auto-applied brand kits, branded client portals, multi-tenant, credit-based billing. **Currently building, this is the main one.**
+2. Govgrant.ca (2025): RAG grant matching, 300+ grants scraped daily, led the engineering top to bottom.
+3. SpeedIQ (2025): WhatsApp and email marketing for teams.
+4. **Apstic** (https://apstic.com, 2025): an AI automation studio. Builds custom workflows that wire CRMs, e-commerce, accounting, and comms tools together: automated lead replies, multi-channel ops across WhatsApp, Slack, and Discord, browser automation, and real-time dashboards. Also home to OpenClaw, a local-first AI assistant that runs on-device.
+5. Trade Business School (2023): a multi-tenant SaaS for trades education.
+6. UK Postcode API (2022): auth, rate limiting, usage analytics, dashboard.
 - Also shipped: Astonsys (design system + redesign for a QA firm), Updoer (rebrand and web build for an IT services company), PicSafe (AI reverse image search), Trekova (a travel marketplace, in progress).
 
 ## Background

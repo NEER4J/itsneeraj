@@ -16,13 +16,16 @@ export function Sidebar() {
           <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
             © Code by Neeraj
           </div>
-          <h1 className="mt-3 text-[36px] font-bold tracking-tight leading-[1] text-fg">
+          <p className="mt-3 text-[36px] font-bold tracking-tight leading-[1] text-fg">
             Neeraj{" "}
             <span className="text-fg/70">Sharma</span>
-            <span className="ml-1.5 inline-block animate-[wave_2.5s_ease-in-out_infinite] origin-[70%_70%]">
+            <span
+              aria-hidden
+              className="ml-1.5 inline-block animate-[wave_2.5s_ease-in-out_infinite] origin-[70%_70%]"
+            >
               👋
             </span>
-          </h1>
+          </p>
           <div className="mt-4 max-w-[230px] text-[14px] leading-[1.5]">
             <div className="font-medium text-fg">
               Full-stack engineer · AI software.

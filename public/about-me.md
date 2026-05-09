@@ -1,6 +1,6 @@
 # Hi, I'm Neeraj.
 
-A full-stack engineer building **AI software for small teams** — the kind that needs to keep working long after launch day.
+A full-stack engineer building **AI software for small teams**. The kind that needs to keep working long after launch day.
 
 For five years I've been building production software end to end: **RAG pipelines, multi-tenant SaaS, automation systems**, and the messy real-world workflows where AI either earns its place or gets in the way.
 
@@ -10,12 +10,12 @@ Work I've led has reached **2,000+ users**, lifted recommendation accuracy by **
 
 ## What I'm working on
 
-Currently building **[Docsiv](https://docsiv.com)** — an AI document workspace for agencies, consultants, and creative teams. This is the main thing.
+Currently building **[Docsiv](https://docsiv.com)**, an AI document workspace for agencies, consultants, and creative teams. This is the main thing.
 
 I also lead engineering at **Virtual Xcellence** on:
 
-- **[Govgrant.ca](https://govgrant.ca)** — RAG-based grant matching for Canadian businesses.
-- **SpeedIQ** — a multi-tenant WhatsApp and email marketing platform.
+- **[Govgrant.ca](https://govgrant.ca)**: RAG-based grant matching for Canadian businesses.
+- **SpeedIQ**: a multi-tenant WhatsApp and email marketing platform.
 
 ---
 
@@ -43,7 +43,7 @@ Design     Figma · Adobe XD · Spline · LottieFiles · Illustrator
 *Next.js · TypeScript · Supabase · OpenAI · RAG · Stripe · ChargeBee · 2,000+ users*
 
 ### SpeedIQ
-**WhatsApp and email marketing for teams.** Broadcasts, chatbots, live chat, and campaign analytics — built on the Meta Business API with embedded signup.
+**WhatsApp and email marketing for teams.** Broadcasts, chatbots, live chat, and campaign analytics, built on the Meta Business API with embedded signup.
 *Next.js · Supabase · Meta Business API · webhooks*
 
 ### Trade Business School
@@ -62,11 +62,11 @@ Design     Figma · Adobe XD · Spline · LottieFiles · Illustrator
 
 ## Also shipped
 
-- **Astonsys** — design system and site redesign for a QA firm
-- **Updoer Technology** — IT services rebrand and web build
-- **PicSafe** — AI reverse image search for unauthorised photo usage
-- **Apstic** — automation studio platform *(launching soon)*
-- **Trekova** — travel marketplace *(in progress)*
+- **Astonsys**: design system and site redesign for a QA firm
+- **Updoer Technology**: IT services rebrand and web build
+- **PicSafe**: AI reverse image search for unauthorised photo usage
+- **Apstic**: automation studio platform *(launching soon)*
+- **Trekova**: travel marketplace *(in progress)*
 
 ---
 
@@ -74,7 +74,7 @@ Design     Figma · Adobe XD · Spline · LottieFiles · Illustrator
 
 I get the smallest useful version of an idea in front of real users early, then refine from what they actually do.
 
-I treat **AI features like product features** — not magic, not hype. They have to be reliable, observable, and worth the wait.
+I treat **AI features like product features**. Not magic, not hype. They have to be reliable, observable, and worth the wait.
 
 I've stayed close to the whole loop on every project I've led: design, architecture, build, deploy, iterate. Equally at home as the only engineer in the room or sharing the work with a team.
 
@@ -82,7 +82,7 @@ I've stayed close to the whole loop on every project I've led: design, architect
 
 ## A bit of background
 
-Started freelancing in **2020** while still in college — Django, Next.js, Node, and payment integrations across Stripe, Razorpay, and PayPal — building for clients across industries.
+Started freelancing in **2020** while still in college, building for clients across industries with Django, Next.js, Node, and payment integrations across Stripe, Razorpay, and PayPal.
 
 Joined **NJ Designpark in 2022** to lead full-stack and PM work: built and launched Trade Business School, integrated OpenAI and Claude into client support flows (cut tickets by 40%), built a domain monitor, the UK Postcode API, and a custom review system that saved one client around $2k a month.
 
