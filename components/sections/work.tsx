@@ -5,11 +5,11 @@ import { ProjectThumb } from "./project-thumb";
 export function Work() {
   return (
     <Section id="work" eyebrow="work">
-      <h2 className="text-[clamp(28px,7.5vw,40px)] leading-[1.06] tracking-tight font-medium md:text-[52px] md:leading-[1.04]">
-        Selected work.
+      <h2 className="text-[clamp(28px,7.5vw,40px)] leading-[1.06] tracking-tight font-medium xl:text-[52px] xl:leading-[1.04]">
+        Work
       </h2>
       <p className="mt-4 max-w-xl text-[15px] leading-[1.65] text-fg-soft">
-        A small set of products I&apos;ve led from blank page to live product, and stuck around for the long tail of getting them used.
+        Six products I&apos;ve built or led from zero to live. Most are still running.
       </p>
 
       <ol className="mt-10 space-y-10 md:mt-12 md:space-y-12">
@@ -41,7 +41,7 @@ export function Work() {
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                       <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
                     </span>
-                    currently building
+                    building now
                   </span>
                 )}
               </div>

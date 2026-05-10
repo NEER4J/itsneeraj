@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 const SITE_URL = "https://itsneeraj.com";
 const SITE_NAME = "Neeraj Sharma";
-const TITLE_DEFAULT = "Neeraj Sharma · full-stack engineer building AI software";
+const TITLE_DEFAULT = "Neeraj Sharma · full-stack engineer, AI products";
 const TITLE_TEMPLATE = "%s · Neeraj Sharma";
 const DESCRIPTION =
-  "Senior full-stack engineer with five years in production. Currently building Docsiv and leading engineering at Virtual Xcellence on Govgrant.ca and SpeedIQ.";
+  "Full-stack engineer, five years building AI products. Building Docsiv right now, leading engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -133,7 +133,7 @@ function PersonJsonLd() {
     alternateName: "Neeraj Sharma",
     url: SITE_URL,
     image: `${SITE_URL}/opengraph-image.png`,
-    jobTitle: "Senior full-stack engineer",
+    jobTitle: "Full-stack engineer",
     worksFor: {
       "@type": "Organization",
       name: "Virtual Xcellence",

@@ -18,7 +18,7 @@ export const SECTIONS = [
 
 export type SectionId = (typeof SECTIONS)[number]["id"];
 export type MobileTab = "content" | "game" | "chat";
-export type LayoutId = "desktop" | "mobile";
+export type LayoutId = "desktop" | "tablet" | "mobile";
 
 type Ctx = {
   activeSection: SectionId;
@@ -36,8 +36,11 @@ const ShellCtx = createContext<Ctx>({
   registerMain: () => {},
 });
 
-function isDesktopViewport() {
-  return typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches;
+function activeLayout(): LayoutId {
+  if (typeof window === "undefined") return "mobile";
+  if (window.matchMedia("(min-width: 1024px)").matches) return "desktop";
+  if (window.matchMedia("(min-width: 768px)").matches) return "tablet";
+  return "mobile";
 }
 
 export function ShellProvider({ children }: { children: React.ReactNode }) {
@@ -45,16 +48,25 @@ export function ShellProvider({ children }: { children: React.ReactNode }) {
   const [mobileTab, setMobileTab] = useState<MobileTab>("content");
   // Use state (not refs) so effects re-run when mains mount.
   const [desktopMain, setDesktopMain] = useState<HTMLElement | null>(null);
+  const [tabletMain, setTabletMain] = useState<HTMLElement | null>(null);
   const [mobileMain, setMobileMain] = useState<HTMLElement | null>(null);
 
   const registerMain = useCallback((layout: LayoutId, el: HTMLElement | null) => {
-    if (layout === "desktop") setDesktopMain((prev) => (prev === el ? prev : el));
-    else setMobileMain((prev) => (prev === el ? prev : el));
+    const setter =
+      layout === "desktop"
+        ? setDesktopMain
+        : layout === "tablet"
+          ? setTabletMain
+          : setMobileMain;
+    setter((prev) => (prev === el ? prev : el));
   }, []);
 
   const pickActiveMain = useCallback(() => {
-    return isDesktopViewport() ? desktopMain : mobileMain;
-  }, [desktopMain, mobileMain]);
+    const layout = activeLayout();
+    if (layout === "desktop") return desktopMain;
+    if (layout === "tablet") return tabletMain;
+    return mobileMain;
+  }, [desktopMain, tabletMain, mobileMain]);
 
   const goToSection = useCallback(
     (id: SectionId) => {
@@ -115,10 +127,11 @@ export function ShellProvider({ children }: { children: React.ReactNode }) {
     };
 
     setupFor(desktopMain);
+    setupFor(tabletMain);
     setupFor(mobileMain);
 
     return () => observers.forEach((o) => o.disconnect());
-  }, [desktopMain, mobileMain]);
+  }, [desktopMain, tabletMain, mobileMain]);
 
   const value = useMemo<Ctx>(
     () => ({

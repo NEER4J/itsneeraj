@@ -13,6 +13,7 @@ import {
   HouseIcon,
   BriefcaseIcon,
   UserIcon,
+  XIcon,
 } from "@phosphor-icons/react";
 import { Sidebar } from "./sidebar";
 import { ChatPanel } from "./chat/chat-panel";
@@ -24,6 +25,7 @@ import { StickyNotes } from "./sticky-notes";
 import { MobileTopBar } from "./mobile-top-bar";
 import {
   type LayoutId,
+  type MobileTab,
   type SectionId,
   SECTIONS,
   ShellProvider,
@@ -46,8 +48,8 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="h-dvh w-full overflow-hidden">
-      {/* Desktop: resizable 3-column layout */}
-      <div className="hidden h-full md:block">
+      {/* Desktop (≥1024px): resizable 3-column layout */}
+      <div className="hidden h-full lg:block">
         <div className="h-full overflow-hidden p-5">
           {mounted ? (
             <PanelGroup direction="horizontal" autoSaveId="neeraj.cols.v1">
@@ -81,7 +83,12 @@ function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* Mobile: single column with bottom dock */}
+      {/* Tablet (768–1023px): 2-column with floating dock + sheet overlay */}
+      <div className="hidden h-full md:block lg:hidden">
+        <TabletLayout>{children}</TabletLayout>
+      </div>
+
+      {/* Mobile (<768px): single column with bottom dock */}
       <div className="md:hidden">
         <MobileLayout>{children}</MobileLayout>
       </div>
@@ -103,14 +110,12 @@ function Main({
     (el: HTMLElement | null) => registerMain(layoutId, el),
     [registerMain, layoutId],
   );
-  const isMobile = layoutId === "mobile";
+  const padClass = layoutId === "tablet" ? "pb-20 scroll-pb-20" : "";
   return (
     <main
       ref={ref}
       data-layout={layoutId}
-      className={`h-full overflow-y-auto ${
-        isMobile ? "pb-dock scroll-pb-dock" : ""
-      }`}
+      className={`h-full overflow-y-auto ${padClass}`}
     >
       {children}
     </main>
@@ -236,23 +241,222 @@ function GamePane({
 
 function MobileLayout({ children }: { children: React.ReactNode }) {
   const { mobileTab } = useShell();
+  const paneCard = "min-h-0 flex-1 overflow-hidden rounded-md bg-bg-elevated card-enter";
 
   return (
     <div className="relative h-dvh overflow-hidden">
-      <div className={`flex h-full flex-col ${mobileTab === "content" ? "" : "hidden"}`}>
-        <MobileTopBar />
-        <div className="min-h-0 flex-1">
+      <div
+        className="flex h-full flex-col gap-3 p-3"
+        style={{
+          paddingTop: "max(0.75rem, env(safe-area-inset-top))",
+          paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+        }}
+      >
+        <div
+          className="overflow-hidden rounded-md bg-bg-elevated card-enter"
+          data-card-accent="blue"
+          style={{ animationDelay: "0ms" }}
+        >
+          <MobileTopBar />
+        </div>
+        <div
+          className={`${paneCard} ${mobileTab === "content" ? "" : "hidden"}`}
+          data-card-accent="rainbow"
+          style={{ animationDelay: "60ms" }}
+        >
           <Main layoutId="mobile">{children}</Main>
         </div>
+        <div
+          className={`${paneCard} ${mobileTab === "game" ? "" : "hidden"}`}
+          data-card-accent="red"
+          style={{ animationDelay: "60ms" }}
+        >
+          <GamePane compact={false} />
+        </div>
+        <div
+          className={`${paneCard} ${mobileTab === "chat" ? "" : "hidden"}`}
+          data-card-accent="yellow"
+          style={{ animationDelay: "60ms" }}
+        >
+          <ChatPanel />
+        </div>
+        <MobileDock />
       </div>
-      <div className={`h-full pb-dock ${mobileTab === "game" ? "block" : "hidden"}`}>
-        <GamePane compact={false} />
-      </div>
-      <div className={`h-full pb-dock ${mobileTab === "chat" ? "block" : "hidden"}`}>
-        <ChatPanel />
-      </div>
-      <MobileDock />
     </div>
+  );
+}
+
+function TabletLayout({ children }: { children: React.ReactNode }) {
+  const { mobileTab, setMobileTab } = useShell();
+  const sheetOpen = mobileTab !== "content";
+
+  // Close sheet on Escape
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileTab("content");
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [sheetOpen, setMobileTab]);
+
+  return (
+    <div className="relative h-full overflow-hidden">
+      <div className="grid h-full grid-cols-[260px_minmax(0,1fr)] gap-4 p-4 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-5 lg:p-5">
+        <TabletLeftStack />
+        <div
+          className={`${CARD} card-enter`}
+          data-card-accent="rainbow"
+          style={{ animationDelay: "60ms" }}
+        >
+          <Main layoutId="tablet">{children}</Main>
+        </div>
+      </div>
+
+      <SecondarySheet
+        open={mobileTab === "game"}
+        accent="red"
+        onClose={() => setMobileTab("content")}
+      >
+        <GamePane compact={false} />
+      </SecondarySheet>
+      <SecondarySheet
+        open={mobileTab === "chat"}
+        accent="yellow"
+        onClose={() => setMobileTab("content")}
+      >
+        <ChatPanel />
+      </SecondarySheet>
+
+      <TabletDock active={mobileTab} onSelect={setMobileTab} />
+    </div>
+  );
+}
+
+function TabletLeftStack() {
+  return (
+    <div className="grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto_auto_auto] gap-4 lg:gap-5">
+      <div
+        className={`${CARD} overflow-y-auto card-enter`}
+        data-card-accent="blue"
+        style={{ animationDelay: "0ms" }}
+      >
+        <Sidebar />
+      </div>
+      <div
+        className={`${CARD} card-enter`}
+        data-card-accent="orange"
+        style={{ animationDelay: "120ms" }}
+      >
+        <div className="p-3">
+          <Clock />
+        </div>
+      </div>
+      <div
+        className={`${CARD} card-enter`}
+        data-card-accent="green"
+        style={{ animationDelay: "180ms" }}
+      >
+        <div className="p-3">
+          <Socials />
+        </div>
+      </div>
+      <div
+        className={`${CARD} card-enter`}
+        data-card-accent="purple"
+        style={{ animationDelay: "240ms" }}
+      >
+        <div className="p-3">
+          <ThemeStrip />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SecondarySheet({
+  open,
+  accent,
+  onClose,
+  children,
+}: {
+  open: boolean;
+  accent: "red" | "yellow";
+  onClose: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      <button
+        type="button"
+        aria-hidden={!open}
+        tabIndex={-1}
+        onClick={onClose}
+        className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px] transition-opacity duration-200 ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
+      <aside
+        aria-hidden={!open}
+        className={`fixed inset-y-4 right-4 z-50 flex w-[min(480px,calc(100vw-2rem))] flex-col overflow-hidden rounded-md bg-bg-elevated shadow-[var(--shadow)] transition-transform duration-300 ease-out lg:inset-y-5 lg:right-5 ${
+          open ? "translate-x-0" : "translate-x-[calc(100%+1.5rem)]"
+        }`}
+        data-card-accent={accent}
+      >
+        <div className="flex items-center justify-end border-b border-border/40 px-2 py-1.5">
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="close"
+            className="grid h-8 w-8 place-items-center rounded-full text-fg-soft transition-colors hover:bg-bg hover:text-fg"
+          >
+            <XIcon size={16} weight="bold" />
+          </button>
+        </div>
+        <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
+      </aside>
+    </>
+  );
+}
+
+const SECONDARY_TABS: { id: Exclude<MobileTab, "content">; label: string; Icon: React.ComponentType<{ size?: number; weight?: "regular" | "bold" | "fill" | "duotone" }> }[] = [
+  { id: "game", label: "Game", Icon: GameControllerIcon },
+  { id: "chat", label: "Chat", Icon: ChatCircleTextIcon },
+];
+
+function TabletDock({
+  active,
+  onSelect,
+}: {
+  active: MobileTab;
+  onSelect: (t: MobileTab) => void;
+}) {
+  return (
+    <nav
+      aria-label="panels"
+      className="pointer-events-none fixed bottom-4 right-4 z-[60] flex justify-end lg:bottom-5 lg:right-5"
+    >
+      <div className="pointer-events-auto flex items-stretch gap-1 rounded-2xl border border-border bg-bg-elevated/95 p-1 shadow-[var(--shadow)] backdrop-blur">
+        {SECONDARY_TABS.map(({ id, label, Icon }) => {
+          const isActive = active === id;
+          return (
+            <button
+              key={id}
+              type="button"
+              onClick={() => onSelect(isActive ? "content" : id)}
+              aria-pressed={isActive}
+              aria-label={label}
+              className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-[12px] font-medium leading-none transition-colors ${
+                isActive ? "bg-accent text-accent-fg" : "text-fg-soft hover:bg-bg hover:text-fg"
+              }`}
+            >
+              <Icon size={16} weight={isActive ? "fill" : "regular"} />
+              <span>{label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </nav>
   );
 }
 
@@ -269,35 +473,35 @@ function MobileDock() {
   return (
     <nav
       aria-label="sections"
-      className="fixed inset-x-0 bottom-0 z-50 px-2 pt-1 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
+      className="card-enter flex flex-none items-stretch gap-1 overflow-hidden rounded-md bg-bg-elevated p-1.5"
+      data-card-accent="purple"
+      style={{ animationDelay: "120ms" }}
     >
-      <div className="mx-auto flex w-full max-w-md items-stretch gap-0.5 rounded-2xl border border-border bg-bg-elevated/95 p-1 shadow-[var(--shadow)] backdrop-blur">
-        {SECTIONS.map((s) => {
-          const active = mobileTab === "content" && activeSection === s.id;
-          const Icon = SECTION_ICON[s.id];
-          return (
-            <DockButton
-              key={s.id}
-              active={active}
-              onClick={() => goToSection(s.id)}
-              icon={<Icon size={18} weight={active ? "fill" : "regular"} />}
-              label={s.label}
-            />
-          );
-        })}
-        <DockButton
-          active={mobileTab === "game"}
-          onClick={() => setMobileTab(mobileTab === "game" ? "content" : "game")}
-          icon={<GameControllerIcon size={18} weight={mobileTab === "game" ? "fill" : "regular"} />}
-          label="Game"
-        />
-        <DockButton
-          active={mobileTab === "chat"}
-          onClick={() => setMobileTab(mobileTab === "chat" ? "content" : "chat")}
-          icon={<ChatCircleTextIcon size={18} weight={mobileTab === "chat" ? "fill" : "regular"} />}
-          label="Chat"
-        />
-      </div>
+      {SECTIONS.map((s) => {
+        const active = mobileTab === "content" && activeSection === s.id;
+        const Icon = SECTION_ICON[s.id];
+        return (
+          <DockButton
+            key={s.id}
+            active={active}
+            onClick={() => goToSection(s.id)}
+            icon={<Icon size={18} weight={active ? "fill" : "regular"} />}
+            label={s.label}
+          />
+        );
+      })}
+      <DockButton
+        active={mobileTab === "game"}
+        onClick={() => setMobileTab(mobileTab === "game" ? "content" : "game")}
+        icon={<GameControllerIcon size={18} weight={mobileTab === "game" ? "fill" : "regular"} />}
+        label="Game"
+      />
+      <DockButton
+        active={mobileTab === "chat"}
+        onClick={() => setMobileTab(mobileTab === "chat" ? "content" : "chat")}
+        icon={<ChatCircleTextIcon size={18} weight={mobileTab === "chat" ? "fill" : "regular"} />}
+        label="Chat"
+      />
     </nav>
   );
 }
@@ -319,7 +523,7 @@ function DockButton({
       onClick={onClick}
       aria-pressed={active}
       aria-label={label}
-      className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 text-[9px] font-medium leading-none transition-colors ${
+      className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-sm px-1 py-2 text-[10px] font-medium leading-none transition-colors ${
         active ? "bg-accent text-accent-fg" : "text-fg-soft active:bg-bg"
       }`}
     >

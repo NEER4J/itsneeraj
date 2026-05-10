@@ -15,18 +15,18 @@ export const AUDIENCES: { id: AudienceId; label: string }[] = [
 
 export const HERO_BY_AUDIENCE: Record<AudienceId, string> = {
   anyone:
-    "I'm Neeraj. A full-stack engineer building AI software that small teams actually rely on.",
+    "I'm Neeraj. Full-stack engineer. Five years building AI products.",
   recruiter:
-    "I'm Neeraj. Senior full-stack engineer, five years in production, currently leading the build on three live AI SaaS products.",
+    "I'm Neeraj. Five years full-stack, three AI products in production. Open to senior full-stack and AI engineering roles.",
   dev:
-    "I'm Neeraj. Next.js, TypeScript, Postgres, Claude, OpenAI. Careful with the boring parts so the AI parts have a foundation to stand on.",
+    "I'm Neeraj. Next.js, Postgres, Claude, OpenAI. I like the boring infrastructure under the AI parts.",
   founder:
-    "I'm Neeraj. I take fuzzy ideas to a working product in weeks, then keep refining once real users start pushing on it.",
+    "I'm Neeraj. I take ideas to live products fast, and stay through the part where they need to actually work.",
   designer:
-    "I'm Neeraj. An engineer with design taste. I care how it looks and reads, not only what it does.",
+    "I'm Neeraj. Engineer with design taste. I care how it reads, not just what it does.",
 };
 
-export const HERO_BODY = `Currently building Docsiv, an AI document workspace for agencies, consultants, and creative teams. Also leading engineering at Virtual Xcellence on Govgrant.ca and SpeedIQ. I work in short loops, with real users in the room, on AI that's still useful on day thirty.`;
+export const HERO_BODY = `I'm building Docsiv right now — an AI document workspace for agencies. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Five years of shipping. Based in India.`;
 
 export type PatternId = "dots" | "lines" | "grid" | "stripes" | "checks";
 
@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
     year: "2025",
     current: true,
     story:
-      "An AI document workspace for agencies, consultants, and creative teams. Generate proposals, decks, contracts, sheets, and canvases from a prompt, with brand kits applied automatically. Branded client portals on custom domains, threaded comments, version history, document analytics, e-sign, and credit-based billing. Multi-tenant from day one.",
+      "An AI document workspace for agencies. Generate proposals, decks, contracts, and sheets from a prompt. Brand kits apply automatically. Branded client portals on custom domains. Multi-tenant, with credit billing, comments, version history, analytics, and e-signature.",
     stack: ["Next.js", "Supabase", "AI SDK", "OpenAI", "Liveblocks", "Dodo Payments"],
     thumb: {
       color: "#312e81",
@@ -77,13 +77,13 @@ export const PROJECTS: Project[] = [
     url: "https://govgrant.ca",
     year: "2025",
     story:
-      "RAG-based grant matching for Canadian businesses. A scraper pipeline I built keeps 300+ grants current daily, and the matches are relevant enough that people come back. I led the engineering top to bottom.",
+      "RAG-based grant matching for Canadian businesses. A scraper pipeline keeps 300+ grants current daily. I lead the engineering.",
     stack: ["Next.js", "TypeScript", "Supabase", "OpenAI", "RAG", "Stripe", "ChargeBee"],
-    metric: "2,000+ users",
+    metric: "2,000 users",
     thumb: {
       color: "#1e3a8a",
       pattern: "dots",
-      tag: "RAG · grants · Canada",
+      tag: "RAG · Canada",
       image: "/projects/govgrant.png",
     },
   },
@@ -92,9 +92,9 @@ export const PROJECTS: Project[] = [
     name: "SpeedIQ",
     year: "2025",
     story:
-      "A WhatsApp and email marketing platform for teams. Built on the Meta Business API with embedded signup, broadcasts, chatbots, live chat, and campaign analytics.",
+      "WhatsApp and email marketing for teams. Built on Meta's Business API: embedded signup, broadcasts, chatbots, live chat, campaign analytics.",
     stack: ["Next.js", "Supabase", "Meta Business API", "webhooks"],
-    thumb: { color: "#064e3b", pattern: "grid", tag: "WA · email · multi-tenant" },
+    thumb: { color: "#064e3b", pattern: "grid", tag: "WhatsApp · multi-tenant" },
   },
   {
     slug: "apstic",
@@ -102,12 +102,12 @@ export const PROJECTS: Project[] = [
     url: "https://apstic.com",
     year: "2025",
     story:
-      "An AI automation studio. Custom workflows that wire CRMs, e-commerce, accounting, and comms tools together: automated lead replies, multi-channel ops across WhatsApp, Slack, and Discord, browser automation for repetitive web work, and real-time dashboards. Also home to OpenClaw, a local-first AI assistant that runs on-device.",
+      "An AI automation studio. Custom workflows connecting CRMs, e-commerce, accounting, and comms. Lead replies, multi-channel ops across WhatsApp, Slack, and Discord, browser automation, real-time dashboards. Includes OpenClaw, a local-first AI assistant.",
     stack: ["Next.js", "n8n", "OpenAI", "Claude", "Meta API", "browser automation"],
     thumb: {
       color: "#4c1d95",
       pattern: "dots",
-      tag: "ai automation · agency",
+      tag: "AI automation",
       image: "/projects/apstic.png",
     },
   },
@@ -116,13 +116,13 @@ export const PROJECTS: Project[] = [
     name: "Trade Business School",
     year: "2023",
     story:
-      "A multi-tenant SaaS for trades education. Course delivery, AI document processing, and student management. Quietly running classes for around 200 students.",
+      "Multi-tenant SaaS for trades education. Course delivery, AI document processing, student management.",
     stack: ["Next.js", "AI APIs", "multi-tenant"],
-    metric: "200+ students",
+    metric: "200 students",
     thumb: {
       color: "#7c2d12",
       pattern: "stripes",
-      tag: "education · SaaS",
+      tag: "education SaaS",
       image: "/projects/tbs.png",
     },
   },
@@ -131,13 +131,13 @@ export const PROJECTS: Project[] = [
     name: "UK Postcode API",
     year: "2022",
     story:
-      "An address lookup API with auth, rate limiting, usage analytics, and a clean dashboard. Quiet by design, dependable for the products built on top of it.",
+      "Address lookup API. Auth, rate limiting, usage analytics, dashboard.",
     stack: ["Node.js", "PostgreSQL", "API gateway"],
-    metric: "1,000 clients · 100k+ fetches",
+    metric: "1,000 clients · 100k fetches",
     thumb: {
       color: "#1e293b",
       pattern: "checks",
-      tag: "API · UK · auth",
+      tag: "API · auth",
       image: "/projects/postcode.png",
     },
   },
@@ -151,60 +151,47 @@ export const ALSO_SHIPPED = [
 ];
 
 export const STACK = {
-  frontend: "Next.js · React · TypeScript · Tailwind · Shadcn UI · Framer Motion · GSAP",
-  backend: "Node.js · Express · Python · PostgreSQL · Supabase",
+  frontend: "Next.js · React · TypeScript · Tailwind · Shadcn · Framer Motion",
+  backend: "Node · Python · Postgres · Supabase",
   ai: "OpenAI · Claude · Gemini · RAG · LangChain · Vercel AI SDK · n8n",
-  infra: "Vercel · Netlify · Railway · Docker · CI/CD",
+  infra: "Vercel · Railway · Docker",
   payments: "Stripe · ChargeBee · Dodo Payments · Razorpay",
-  design: "Figma · Adobe XD · Spline · LottieFiles · Illustrator",
 };
 
 export const META = {
-  role: "Senior full-stack · AI SaaS",
-  company: "Virtual Xcellence",
-  since: "Jan 2025",
-  base: "India · remote-friendly",
   email: "ittsneeraj@gmail.com",
   call: "https://cal.com/neeraj-sharma/30min",
   links: [
     { label: "linkedin", href: "https://linkedin.com/in/neer4j" },
     { label: "github", href: "https://github.com/NEER4J" },
-    { label: "x / twitter", href: "https://x.com/NEER4J__" },
+    { label: "x", href: "https://x.com/NEER4J__" },
     { label: "instagram", href: "https://instagram.com/" },
   ],
 };
 
-export const NUMBERS = [
-  { value: "2k+", label: "users on Govgrant.ca" },
-  { value: "40%", label: "fewer support tickets after AI rollout" },
-  { value: "95%", label: "of a client's manual work, automated" },
-  { value: "5 yrs", label: "of production work" },
-];
-
 export const STORY = [
   {
     when: "2020",
-    where: "freelance, college",
     what:
-      "Started taking client work while still in college. Django, Next.js, Node, and payment integrations across Stripe, Razorpay, and PayPal. The first time deploying things that earned someone money.",
+      "Started freelancing in college. Django, Next.js, Node. Stripe, Razorpay, PayPal integrations. First time deploying code that handled real money.",
   },
   {
     when: "2022",
-    where: "NJ Designpark",
     what:
-      "Led full-stack and PM work. Built and launched Trade Business School. Wired OpenAI and Claude into client support flows and cut tickets by 40%. Also built a domain monitor, the UK Postcode API, and a custom review system that saved one client around $2k a month.",
+      "Joined NJ Designpark. Led full-stack and PM work. Built Trade Business School from scratch. Wired Claude and OpenAI into support flows, dropped tickets 40%. Built a review system that saved a client $2k a month.",
   },
   {
     when: "2025",
-    where: "Virtual Xcellence",
     what:
-      "Moved fully into AI SaaS. Currently building Docsiv, which is the main focus. Also leading Govgrant.ca and SpeedIQ at Virtual Xcellence.",
+      "Moved fully into AI SaaS at Virtual Xcellence. Now leading three products.",
   },
 ];
 
 export const ABOUT_FULL = `# Neeraj Kumar Sharma
 
 A full-stack engineer with five years of production experience, currently building AI software for small teams. **The headline: he is currently building Docsiv. Lead with that whenever someone asks what he's working on.** He also leads engineering at Virtual Xcellence (since Jan 2025) on Govgrant.ca and SpeedIQ. Based in India, comfortable working remotely with teams anywhere.
+
+**Availability: open to full-time roles, contract, and freelance.** Best fit is senior full-stack or AI engineering at AI-first or AI-adjacent product teams.
 
 ## Voice / personality
 - Practical and low-ego. Talks about the work, not himself.
@@ -244,7 +231,10 @@ A full-stack engineer with five years of production experience, currently buildi
 - B.Tech in Computer Science, Chhattisgarh Swami Vivekanand Technical University, 2020–2023.
 
 ## Hire / contact
-- Open to AI and SaaS work, freelance, or a quiet chat about products.
+- **Open to full-time roles, contract, and freelance.** Senior full-stack or AI engineering, especially at AI-first or AI-adjacent product teams.
+- Comfortable as a senior IC, the only engineer in the room, or technical leadership in small-to-mid teams.
+- Remote-friendly; based in India. Open to async-first or hybrid setups.
+- Recruiters and hiring managers: best path is a 30-min call or email, where he can talk through the role directly.
 - Book a 30-min call: https://cal.com/neeraj-sharma/30min
 - Email: ittsneeraj@gmail.com
 - Site: https://itsneeraj.com

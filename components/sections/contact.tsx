@@ -6,11 +6,11 @@ import { Section } from "./section";
 export function Contact() {
   return (
     <Section id="contact" eyebrow="contact">
-      <h2 className="text-[clamp(28px,7.5vw,40px)] leading-[1.06] tracking-tight font-medium md:text-[52px] md:leading-[1.04]">
-        Say hello.
+      <h2 className="text-[clamp(28px,7.5vw,40px)] leading-[1.06] tracking-tight font-medium xl:text-[52px] xl:leading-[1.04]">
+        Contact
       </h2>
       <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-fg-soft">
-        Open to AI and SaaS work, freelance projects, or a quiet chat about something you&apos;re building. I usually reply within a day or two.
+        Open to full-time roles, contract, and freelance — senior full-stack and AI engineering. Or a chat about something you&apos;re building.
       </p>
 
       <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-12">
@@ -25,7 +25,7 @@ export function Contact() {
             className="group block"
           >
             <div className="text-[22px] tracking-tight font-medium group-hover:text-accent transition-colors md:text-[24px]">
-              Grab a 30-minute slot
+              Book 30 minutes
               <span className="ml-2 text-[14px] text-muted group-hover:text-accent">↗</span>
             </div>
             <div className="mt-1 font-mono text-[11px] text-muted break-all">
@@ -43,9 +43,6 @@ export function Contact() {
             >
               {META.email}
             </a>
-            <p className="mt-3 max-w-xs text-[13px] text-muted leading-[1.6]">
-              For work, projects, or just to say hi.
-            </p>
           </div>
         </div>
 
@@ -74,7 +71,7 @@ export function Contact() {
               Colophon
             </div>
             <p className="text-[13px] text-muted leading-[1.7] max-w-xs">
-              Built with Next.js 16, Tailwind v4, and Framer Motion. Set in Geist. Designed and built by me.
+              Built with Next.js 16, Tailwind v4, Framer Motion. Set in Geist.
             </p>
           </div>
         </div>

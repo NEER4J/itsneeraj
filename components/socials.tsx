@@ -14,7 +14,7 @@ const SOCIAL_ICON: Record<
 > = {
   linkedin: LinkedinLogoIcon,
   github: GithubLogoIcon,
-  "x / twitter": XLogoIcon,
+  x: XLogoIcon,
   instagram: InstagramLogoIcon,
 };
 

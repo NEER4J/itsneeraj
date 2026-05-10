@@ -32,7 +32,7 @@ const SOCIAL_ICON: Record<
 > = {
   linkedin: LinkedinLogoIcon,
   github: GithubLogoIcon,
-  "x / twitter": XLogoIcon,
+  x: XLogoIcon,
   instagram: InstagramLogoIcon,
 };
 
@@ -48,10 +48,7 @@ export function MobileTopBar() {
   const ThemeIcon = THEME_ICON[theme];
 
   return (
-    <div
-      className="flex items-center justify-between gap-2 border-b border-border bg-bg px-4 py-2.5"
-      style={{ paddingTop: "max(0.625rem, env(safe-area-inset-top))" }}
-    >
+    <div className="flex items-center justify-between gap-2 px-4 py-2.5">
       <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
         © Code by Neeraj
       </div>
