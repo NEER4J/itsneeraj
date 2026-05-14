@@ -10,7 +10,7 @@ export function Contact() {
         Contact
       </h2>
       <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-fg-soft">
-        Open to full-time roles, contract, and freelance — senior full-stack and AI engineering. Or a chat about something you&apos;re building.
+        Open to full-time roles, contract, and freelance. Senior full-stack and AI engineering. Or a chat about something you&apos;re building.
       </p>
 
       <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-12">
@@ -68,10 +68,11 @@ export function Contact() {
 
           <div className="mt-12">
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted mb-3">
-              Colophon
+              Small Note
             </div>
-            <p className="text-[13px] text-muted leading-[1.7] max-w-xs">
-              Built with Next.js 16, Tailwind v4, Framer Motion. Set in Geist.
+            
+            <p className="mt-4 font-mono text-[13px]">
+              Code, products, design and ideas by Neeraj.
             </p>
           </div>
         </div>

@@ -1,10 +1,10 @@
 # Site copy
 
-Every bit of human-readable copy on the site — UI text, marketing prose, the chat system prompt, and the bio it embeds. Grouped by where it appears.
+Every bit of human-readable copy on the site, UI text, marketing prose, the chat system prompt, and the bio it embeds. Grouped by where it appears.
 
 ---
 
-## SEO / metadata — `app/layout.tsx` + `app/manifest.ts`
+## SEO / metadata, `app/layout.tsx` + `app/manifest.ts`
 
 - **Site name:** Neeraj Sharma
 - **Default title:** `Neeraj Sharma · full-stack engineer, AI products`
@@ -17,7 +17,7 @@ Every bit of human-readable copy on the site — UI text, marketing prose, the c
 
 ---
 
-## Sidebar / brand — `components/sidebar.tsx`
+## Sidebar / brand, `components/sidebar.tsx`
 
 - Eyebrow: `© Code by Neeraj`
 - Name: `Neeraj Sharma 👋`
@@ -29,7 +29,7 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 ---
 
-## Hello section — `components/sections/hello.tsx` + `lib/content.ts`
+## Hello section, `components/sections/hello.tsx` + `lib/content.ts`
 
 **Audience tabs:** `Everyone`, `Recruiters`, `Engineers`, `Founders`, `Designers`
 
@@ -40,11 +40,11 @@ Mobile top bar repeats `© Code by Neeraj`.
 - **Founders:** I'm Neeraj. I take ideas to live products fast, and stay through the part where they need to actually work.
 - **Designers:** I'm Neeraj. Engineer with design taste. I care how it reads, not just what it does.
 
-**Hero body:** I'm building Docsiv right now — an AI document workspace for agencies. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Five years of shipping. Based in India.
+**Hero body:** I'm building Docsiv right now, an AI document workspace for agencies. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Five years of shipping. Based in India.
 
 ---
 
-## Sticky note (desktop + mobile) — `components/sticky-notes.tsx` + `components/sections/hello.tsx`
+## Sticky note (desktop + mobile), `components/sticky-notes.tsx` + `components/sections/hello.tsx`
 
 - Eyebrow: `currently building`
 - Body: `AI documents. Branded client portals.`
@@ -54,7 +54,7 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 ---
 
-## Work section — `components/sections/work.tsx` + `lib/content.ts`
+## Work section, `components/sections/work.tsx` + `lib/content.ts`
 
 - Title: `Work`
 - Intro: Six products I've built or led from zero to live. Most are still running.
@@ -62,39 +62,39 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 **Projects:**
 
-1. **Docsiv** — `AI docs · agencies` — 2025 — *building now*
+1. **Docsiv**, `AI docs · agencies`, 2025, *building now*
    > An AI document workspace for agencies. Generate proposals, decks, contracts, and sheets from a prompt. Brand kits apply automatically. Branded client portals on custom domains. Multi-tenant, with credit billing, comments, version history, analytics, and e-signature.
    - Stack: Next.js · Supabase · AI SDK · OpenAI · Liveblocks · Dodo Payments
 
-2. **Govgrant.ca** — `RAG · Canada` — 2025 — `2,000 users`
+2. **Govgrant.ca**, `RAG · Canada`, 2025, `2,000 users`
    > RAG-based grant matching for Canadian businesses. A scraper pipeline keeps 300+ grants current daily. I lead the engineering.
    - Stack: Next.js · TypeScript · Supabase · OpenAI · RAG · Stripe · ChargeBee
 
-3. **SpeedIQ** — `WhatsApp · multi-tenant` — 2025
+3. **SpeedIQ**, `WhatsApp · multi-tenant`, 2025
    > WhatsApp and email marketing for teams. Built on Meta's Business API: embedded signup, broadcasts, chatbots, live chat, campaign analytics.
    - Stack: Next.js · Supabase · Meta Business API · webhooks
 
-4. **Apstic** — `AI automation` — 2025
+4. **Apstic**, `AI automation`, 2025
    > An AI automation studio. Custom workflows connecting CRMs, e-commerce, accounting, and comms. Lead replies, multi-channel ops across WhatsApp, Slack, and Discord, browser automation, real-time dashboards. Includes OpenClaw, a local-first AI assistant.
    - Stack: Next.js · n8n · OpenAI · Claude · Meta API · browser automation
 
-5. **Trade Business School** — `education SaaS` — 2023 — `200 students`
+5. **Trade Business School**, `education SaaS`, 2023, `200 students`
    > Multi-tenant SaaS for trades education. Course delivery, AI document processing, student management.
    - Stack: Next.js · AI APIs · multi-tenant
 
-6. **UK Postcode API** — `API · auth` — 2022 — `1,000 clients · 100k fetches`
+6. **UK Postcode API**, `API · auth`, 2022, `1,000 clients · 100k fetches`
    > Address lookup API. Auth, rate limiting, usage analytics, dashboard.
    - Stack: Node.js · PostgreSQL · API gateway
 
 **Also shipped:**
-- **Astonsys** — design system and site redesign for a QA firm
-- **Updoer** — rebrand and web build for an IT services company
-- **PicSafe** — AI reverse image search for unauthorised photo usage
-- **Trekova** — a travel marketplace, in progress
+- **Astonsys**, design system and site redesign for a QA firm
+- **Updoer**, rebrand and web build for an IT services company
+- **PicSafe**, AI reverse image search for unauthorised photo usage
+- **Trekova**, a travel marketplace, in progress
 
 ---
 
-## About section — `components/sections/about.tsx` + `lib/content.ts`
+## About section, `components/sections/about.tsx` + `lib/content.ts`
 
 - Title: `About`
 
@@ -124,28 +124,28 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 ---
 
-## Contact section — `components/sections/contact.tsx`
+## Contact section, `components/sections/contact.tsx`
 
 - Title: `Contact`
-- Intro: Open to full-time roles, contract, and freelance — senior full-stack and AI engineering. Or a chat about something you're building.
-- **Preferred:** `Book 30 minutes ↗` — `cal.com/neeraj-sharma/30min`
+- Intro: Open to full-time roles, contract, and freelance, senior full-stack and AI engineering. Or a chat about something you're building.
+- **Preferred:** `Book 30 minutes ↗`, `cal.com/neeraj-sharma/30min`
 - **Email:** ittsneeraj@gmail.com
 - **Elsewhere:** linkedin · github · x · instagram
-- **Colophon:** Built with Next.js 16, Tailwind v4, Framer Motion. Set in Geist.
+- **Built with:** Next.js 16, Tailwind CSS v4, and Framer Motion. Typeface is Geist. Designed and coded from scratch, no templates.
 
 ---
 
-## Theme strip — `lib/themes.ts`
+## Theme strip, `lib/themes.ts`
 
-- `auto` — system theme
-- `dark` — quiet
-- `light` — bright
-- `terminal` — green CRT
-- `retro` — 70s sunshine
+- `auto`, system theme
+- `dark`, quiet
+- `light`, bright
+- `terminal`, green CRT
+- `retro`, 70s sunshine
 
 ---
 
-## Chat panel UI — `components/chat/chat-panel.tsx`
+## Chat panel UI, `components/chat/chat-panel.tsx`
 
 - Empty state: `I'm a small assistant trained on Neeraj's bio. Ask about his projects, stack, hiring, or how he works.`
 - Input placeholder: `Ask anything…`
@@ -163,7 +163,7 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 ---
 
-## Chat API — server messages — `app/api/chat/route.ts`
+## Chat API, server messages, `app/api/chat/route.ts`
 
 - Missing key (503): `chat is offline right now. set OPENROUTER_API_KEY in .env.local to bring it back. (the rest of the site still works.)`
 - Rate limited (429): `you've hit the chat rate limit. give it a bit and try again, or email ittsneeraj@gmail.com.`
@@ -173,7 +173,7 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 ---
 
-## Chat system prompt (the LLM persona) — `app/api/chat/route.ts`
+## Chat system prompt (the LLM persona), `app/api/chat/route.ts`
 
 ```
 You are a friendly little chatbot embedded on Neeraj Kumar Sharma's portfolio site.
@@ -185,11 +185,11 @@ Voice rules:
 - Don't invent projects, clients, numbers, or facts. Stick to what's in the bio below.
 - A tiny bit playful is okay. Single emoji once in a while is fine, but don't overdo it.
 
-Hiring rules (important — recruiters and hiring managers use this chat):
+Hiring rules (important, recruiters and hiring managers use this chat):
 - Neeraj is open to **full-time roles, contract, and freelance**. Treat recruiter and hiring-manager messages seriously and answer plainly.
 - Best fit: **senior full-stack or AI engineering** at AI-first or AI-adjacent product teams. He's comfortable as a senior IC, the only engineer in the room, or technical leadership in small-to-mid teams. Remote-friendly; based in India.
-- For any "is he hiring/available" / "looking for a role" / "open to full-time" question, lead with "yes — open to full-time, contract, and freelance," then point them to the cal.com link (https://cal.com/neeraj-sharma/30min) or ittsneeraj@gmail.com so they can take it off-chat.
-- If a recruiter shares a role spec or company, don't pretend to know specifics about the role — point them to email/cal so Neeraj can respond directly.
+- For any "is he hiring/available" / "looking for a role" / "open to full-time" question, lead with "yes, open to full-time, contract, and freelance," then point them to the cal.com link (https://cal.com/neeraj-sharma/30min) or ittsneeraj@gmail.com so they can take it off-chat.
+- If a recruiter shares a role spec or company, don't pretend to know specifics about the role, point them to email/cal so Neeraj can respond directly.
 - Don't volunteer salary, location, or visa details. Defer those to a direct conversation.
 
 Content rules:
@@ -206,12 +206,12 @@ Formatting rules:
 
 Here is everything you know about Neeraj:
 
-{ABOUT_FULL — see below}
+{ABOUT_FULL, see below}
 ```
 
 ---
 
-## ABOUT_FULL — bio fed into the chat — `lib/content.ts`
+## ABOUT_FULL, bio fed into the chat, `lib/content.ts`
 
 ```markdown
 # Neeraj Kumar Sharma
@@ -270,11 +270,11 @@ A full-stack engineer with five years of production experience, currently buildi
 - X: https://x.com/NEER4J__
 ```
 
-> The chatbot's bio is intentionally untouched — it's the model's source of truth and changing it without testing the chat output is risky. Update separately if its tone needs to match the new copy.
+> The chatbot's bio is intentionally untouched, it's the model's source of truth and changing it without testing the chat output is risky. Update separately if its tone needs to match the new copy.
 
 ---
 
-## 404 page — `app/not-found.tsx`
+## 404 page, `app/not-found.tsx`
 
 - Meta title: `404`
 - Meta description: `This site is mostly one page. Pick a section.`
@@ -285,15 +285,15 @@ A full-stack engineer with five years of production experience, currently buildi
 
 ---
 
-## Standalone bio used outside the app — `public/about-me.md`
+## Standalone bio used outside the app, `public/about-me.md`
 
-Long-form version kept in `public/`, not rendered on the site itself. Has its own voice — written before the recent copy pass — and may be out of date relative to the new tone.
+Long-form version kept in `public/`, not rendered on the site itself. Has its own voice, written before the recent copy pass, and may be out of date relative to the new tone.
 
 ---
 
 ## Misc UI strings
 
-- Games picker — eyebrow `arcade` · subhead `pick one` · back button `games` · game names `snake`, `tetris`, `wordle`, `dino`
+- Games picker, eyebrow `arcade` · subhead `pick one` · back button `games` · game names `snake`, `tetris`, `wordle`, `dino`
 - Section eyebrows: `hello`, `work`, `about`, `contact` (each prefixed by a slash glyph)
 - Tablet/mobile dock labels: `Game`, `Chat`, plus the four section labels
 - Aria labels: `panels`, `sections`, `close`, `send`, `clear chat`, `thinking`, `Open <Project>`, `switch theme (current: <theme>)`

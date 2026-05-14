@@ -1,6 +1,6 @@
-# Portfolio — Structure & Layout
+# Portfolio, Structure & Layout
 
-A snapshot of every UI piece in the portfolio, where it lives in the layout, and what it shows. Pure structure — no fonts, colors, or visual styling.
+A snapshot of every UI piece in the portfolio, where it lives in the layout, and what it shows. Pure structure, no fonts, colors, or visual styling.
 
 ---
 
@@ -8,7 +8,7 @@ A snapshot of every UI piece in the portfolio, where it lives in the layout, and
 
 The site has two layouts that switch on viewport width.
 
-### Desktop (≥ 768px) — 3 resizable columns
+### Desktop (≥ 768px), 3 resizable columns
 
 ```
 ┌──────────────┬───────────────────────────────────┬─────────────────────────┐
@@ -30,7 +30,7 @@ The site has two layouts that switch on viewport width.
 - **Right column vertical split**: Game ~48%, Chat ~52%, both min 20%.
 - All splits are user-resizable; widths persist via `react-resizable-panels` autosave.
 
-### Mobile (< 768px) — single column + bottom dock
+### Mobile (< 768px), single column + bottom dock
 
 ```
 ┌──────────────────────────────────────┐
@@ -80,11 +80,11 @@ Vertical stack, top to bottom:
 Vertical scroll. Sections are separated by thin horizontal dividers. Order:
 
 1. **Hello** section
-2. — divider —
+2. divider
 3. **Work** section
-4. — divider —
+4. divider
 5. **About** section
-6. — divider —
+6. divider
 7. **Contact** section
 8. Bottom spacer
 
@@ -123,11 +123,11 @@ Order top to bottom:
      - Story paragraph
      - Stack chips line (dot-separated)
    - Projects in order:
-     1. Govgrant.ca (2025) — RAG · grants · Canada — 2,000+ users
-     2. Docsiv (2025) — AI docs · multi-tenant
-     3. SpeedIQ (2025) — WA · email · multi-tenant
-     4. Trade Business School (2023) — education · SaaS — 200+ students
-     5. UK Postcode API (2022) — API · UK · auth — 1,000 clients · 100k+ fetches
+     1. Govgrant.ca (2025), RAG · grants · Canada, 2,000+ users
+     2. Docsiv (2025), AI docs · multi-tenant
+     3. SpeedIQ (2025), WA · email · multi-tenant
+     4. Trade Business School (2023), education · SaaS, 200+ students
+     5. UK Postcode API (2022), API · UK · auth, 1,000 clients · 100k+ fetches
 
 5. **Also shipped** subsection
    - Eyebrow: `Also shipped`
@@ -144,24 +144,24 @@ Order top to bottom:
 
 1. Eyebrow: `/ about`
 2. Heading: `Where I am, how I got here.`
-3. **Currently** block — eyebrow + 2-col definition list:
+3. **Currently** block, eyebrow + 2-col definition list:
    - role
    - working at (+ since)
    - based in
    - email (mailto link)
-4. **How I got here** block — eyebrow + timeline list:
-   - 2020 — freelance, college
-   - 2022 — NJ Designpark
-   - 2025 — Virtual Xcellence
+4. **How I got here** block, eyebrow + timeline list:
+   - 2020, freelance, college
+   - 2022, NJ Designpark
+   - 2025, Virtual Xcellence
    - Each row is `[year + where] | [paragraph]`.
-5. **Stack I reach for** block — eyebrow + 2-col definition list:
+5. **Stack I reach for** block, eyebrow + 2-col definition list:
    - frontend
    - backend
    - ai
    - infra
    - payments
    - design
-6. **How I work** block — eyebrow + 4-bullet list of working principles.
+6. **How I work** block, eyebrow + 4-bullet list of working principles.
 
 ### 3d. Contact section
 
@@ -184,7 +184,7 @@ Order top to bottom:
 
 ---
 
-## 4. Right column — Game pane (top)
+## 4. Right column, Game pane (top)
 
 A picker that opens into individual mini-games.
 
@@ -192,10 +192,10 @@ A picker that opens into individual mini-games.
 
 - **Header bar**: game-controller icon + eyebrow `mini · games` + line `pick one. hover to preview.` + count on the right.
 - **2-column grid of game cards**:
-  1. Snake — "the classic."
-  2. Tetris — "stack the blocks."
-  3. Wordle — "guess in 6."
-  4. Dino — "jump the cacti."
+  1. Snake, "the classic."
+  2. Tetris, "stack the blocks."
+  3. Wordle, "guess in 6."
+  4. Dino, "jump the cacti."
 - Each card shows an animated thumbnail (animates on hover/focus).
 
 ### Active game view
@@ -205,7 +205,7 @@ A picker that opens into individual mini-games.
 
 ---
 
-## 5. Right column — Chat panel (bottom)
+## 5. Right column, Chat panel (bottom)
 
 A streaming chat with an ASCII-cat mascot ("neeraj-bot v1").
 
@@ -221,10 +221,10 @@ A streaming chat with an ASCII-cat mascot ("neeraj-bot v1").
 - Greeting line from the bot.
 - Eyebrow: `Topics`
 - 2x2 chip grid of starter prompts:
-  - Work — "What's the one project to ask him about?"
-  - Stack — "What's he using for AI these days?"
-  - Hire — "Is he taking on freelance right now?"
-  - Random — "Tell me one specific number from his bio."
+  - Work, "What's the one project to ask him about?"
+  - Stack, "What's he using for AI these days?"
+  - Hire, "Is he taking on freelance right now?"
+  - Random, "Tell me one specific number from his bio."
 - "Or type your own question below." line.
 
 **Conversation state**:
@@ -241,10 +241,10 @@ A streaming chat with an ASCII-cat mascot ("neeraj-bot v1").
 
 ### ASCII-cat mascot moods
 
-- `idle` — slow blink animation
-- `talking` — fast face cycle while streaming tokens
-- `thinking` — waiting for first token
-- `sleeping` — unused state available
+- `idle`, slow blink animation
+- `talking`, fast face cycle while streaming tokens
+- `thinking`, waiting for first token
+- `sleeping`, unused state available
 
 ---
 
@@ -256,8 +256,8 @@ Bottom-fixed pill. Buttons left to right:
 2. Work (briefcase icon)
 3. About (user icon)
 4. Contact (envelope icon)
-5. Game (controller icon — toggles Game tab)
-6. Chat (chat-bubble icon — toggles Chat tab)
+5. Game (controller icon, toggles Game tab)
+6. Chat (chat-bubble icon, toggles Chat tab)
 
 The first four set both `mobileTab="content"` and the active section. Game/Chat buttons toggle the corresponding mobile tab.
 
@@ -265,8 +265,8 @@ The first four set both `mobileTab="content"` and the active section. Game/Chat 
 
 ## 7. Other pages / routes
 
-- **`/`** — the only real page; everything above lives here.
-- **`/not-found`** (404) — single centered card:
+- **`/`**, the only real page; everything above lives here.
+- **`/not-found`** (404), single centered card:
   - `404` eyebrow
   - Heading: `this page wandered off.`
   - Body line.
@@ -276,8 +276,8 @@ The first four set both `mobileTab="content"` and the active section. Game/Chat 
 
 ## 8. API routes (server)
 
-- **`POST /api/chat`** — backs the chat panel (streaming responses).
-- **`/api/visitor`** — visitor/analytics endpoint (writes to `data/visitors.jsonl`).
+- **`POST /api/chat`**, backs the chat panel (streaming responses).
+- **`/api/visitor`**, visitor/analytics endpoint (writes to `data/visitors.jsonl`).
 
 ---
 

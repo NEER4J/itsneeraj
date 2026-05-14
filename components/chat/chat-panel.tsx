@@ -54,7 +54,7 @@ function writeUsage(u: Usage): void {
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(u));
   } catch {
-    // localStorage may be disabled / full; ignore — server-side limit still applies.
+    // localStorage may be disabled / full; ignore, server-side limit still applies.
   }
 }
 

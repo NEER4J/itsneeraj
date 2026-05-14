@@ -248,7 +248,7 @@ body {
   background: #e6d6a8;
 }
 
-/* Retro 70s palette — bold blocks of color
+/* Retro 70s palette, bold blocks of color
    Sunshine #ffc926 · Cream #f3e8cc · Crisp Carrot #f96015
    Tomato Burst #d52518 · Forest Green #18542a · Kiwi #9ABC05 */
 
@@ -293,7 +293,7 @@ body {
 /* Inside bold cards, child tiles using bg-bg / bg-bg-elevated would otherwise
    paint cream squares on top of the bold color. Make them a translucent ink
    layer instead so the parent color shows through and inner content stays
-   visually grouped — light wash on dark cards, dark wash on light cards. */
+   visually grouped, light wash on dark cards, dark wash on light cards. */
 [data-theme="cyber"] [data-card-accent="orange"] .bg-bg,
 [data-theme="cyber"] [data-card-accent="orange"] .bg-bg-elevated,
 [data-theme="cyber"] [data-card-accent="green"] .bg-bg,
@@ -310,7 +310,7 @@ body {
   background-color: rgba(24, 84, 42, 0.1) !important;
 }
 
-/* Chat (navy) — form controls and the "new" pill need full-contrast cream
+/* Chat (navy), form controls and the "new" pill need full-contrast cream
    surfaces with crisp navy ink, not a faint wash. Reset the text vars
    inside these pills so border/placeholder/icon all read against cream. */
 [data-theme="cyber"] [data-card-accent="yellow"] .bg-bg,

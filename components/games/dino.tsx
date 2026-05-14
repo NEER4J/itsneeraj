@@ -104,7 +104,7 @@ export function DinoGame({ compact = false }: { compact?: boolean }) {
       for (const o of s.obstacles) o.x -= s.speed;
       s.obstacles = s.obstacles.filter((o) => o.x + o.w > -10);
 
-      // Parallax — clouds drift slowly, mountains slower still
+      // Parallax, clouds drift slowly, mountains slower still
       for (const c of s.clouds) {
         c.x -= c.speed * (1 + s.speed * 0.06);
         if (c.x + c.r * 2 < -10) {
@@ -124,7 +124,7 @@ export function DinoGame({ compact = false }: { compact?: boolean }) {
 
       // Spawn obstacles. The gap between obstacles is *at least* the
       // horizontal distance covered during a jump, so the player always
-      // has time to land and jump again — no impossible-to-clear spawns
+      // has time to land and jump again, no impossible-to-clear spawns
       // even as speed ramps up.
       if (s.nextSpawn <= 0) {
         const w = 12 + Math.floor(Math.random() * 14);
@@ -262,7 +262,7 @@ export function DinoGame({ compact = false }: { compact?: boolean }) {
     }
     ctx.globalAlpha = 1;
 
-    // Dino — chunky pixel silhouette (scaled-up version)
+    // Dino, chunky pixel silhouette (scaled-up version)
     ctx.fillStyle = fg;
     const dy = s.y;
     // body
@@ -366,7 +366,7 @@ export function DinoGame({ compact = false }: { compact?: boolean }) {
         />
       </FitBox>
 
-      {/* Always-visible jump button — fills space below canvas and gives
+      {/* Always-visible jump button, fills space below canvas and gives
           touch users an explicit control. */}
       <div className="flex justify-center">
         <button

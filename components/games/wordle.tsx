@@ -205,7 +205,7 @@ export function WordleGame({ compact = false }: { compact?: boolean }) {
         )}
       </div>
 
-      {/* Grid — fluid, fills available height, sized to fit 5×6 tiles
+      {/* Grid, fluid, fills available height, sized to fit 5×6 tiles
           while keeping cells square. */}
       <div
         className={`mx-auto flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-1 ${shake ? "animate-[shake_0.4s_ease-in-out]" : ""}`}

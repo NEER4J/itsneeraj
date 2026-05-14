@@ -118,7 +118,7 @@ export function SnakeGame({ compact = false }: { compact?: boolean }) {
           x: head.x + (d === "left" ? -1 : d === "right" ? 1 : 0),
           y: head.y + (d === "up" ? -1 : d === "down" ? 1 : 0),
         };
-        // Walls wrap around — only self-collision ends the game.
+        // Walls wrap around, only self-collision ends the game.
         const next = {
           x: ((raw.x % COLS) + COLS) % COLS,
           y: ((raw.y % ROWS) + ROWS) % ROWS,
@@ -150,7 +150,7 @@ export function SnakeGame({ compact = false }: { compact?: boolean }) {
     return () => clearInterval(id);
   }, [running, over, food, score]);
 
-  // Render — animated via rAF for the food pulse
+  // Render, animated via rAF for the food pulse
   useEffect(() => {
     let raf = 0;
     const draw = () => {
@@ -207,7 +207,7 @@ export function SnakeGame({ compact = false }: { compact?: boolean }) {
           ctx.arc(cx, cy, cell * 0.32, 0, Math.PI * 2);
           ctx.fill();
 
-          // snake — rounded segments with gradient
+          // snake, rounded segments with gradient
           snake.forEach((s, i) => {
             const r = cell * 0.32;
             const x = s.x * cell + cell / 2;
@@ -291,7 +291,7 @@ export function SnakeGame({ compact = false }: { compact?: boolean }) {
         />
       </FitBox>
 
-      {/* Always-visible D-pad — fills empty space below square canvas
+      {/* Always-visible D-pad, fills empty space below square canvas
           and gives touch users explicit controls. */}
       <div
         className={`mx-auto grid w-full grid-cols-3 ${

@@ -26,7 +26,7 @@ export const HERO_BY_AUDIENCE: Record<AudienceId, string> = {
     "I'm Neeraj. Engineer with design taste. I care how it reads, not just what it does.",
 };
 
-export const HERO_BODY = `I'm building Docsiv right now — an AI document workspace for agencies. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Five years of shipping. Based in India.`;
+export const HERO_BODY = `I'm building Docsiv right now, an AI document workspace for agencies. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Five years of shipping. Based in India.`;
 
 export type PatternId = "dots" | "lines" | "grid" | "stripes" | "checks";
 

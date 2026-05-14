@@ -3,7 +3,7 @@
 import type React from "react";
 
 /**
- * A small visual "key" — looks like a keyboard cap with a faint inner shadow
+ * A small visual "key", looks like a keyboard cap with a faint inner shadow
  * to feel pressable. Use `wide` for multi-character labels (space, enter…).
  */
 export function KeyCap({
@@ -31,7 +31,7 @@ export function KeyCap({
 }
 
 /**
- * One row of: [keys] — label
+ * One row of: [keys], label
  * Keys can be a list of KeyCap children, label is a short description.
  */
 export function KeyRow({

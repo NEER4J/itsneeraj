@@ -59,6 +59,24 @@ function readSectionFromUrl(): SectionId | null {
   return normalizeSection(new URLSearchParams(window.location.search).get("section"));
 }
 
+const SECTION_SCROLL_OFFSET = 16;
+
+function elementOffsetTop(el: HTMLElement): number {
+  let top = 0;
+  let node: HTMLElement | null = el;
+  while (node) {
+    top += node.offsetTop;
+    node = node.offsetParent as HTMLElement | null;
+  }
+  return top;
+}
+
+function sectionScrollTop(main: HTMLElement, target: HTMLElement): number {
+  const targetTop = elementOffsetTop(target) - elementOffsetTop(main);
+  const maxTop = Math.max(0, main.scrollHeight - main.clientHeight);
+  return Math.max(0, Math.min(targetTop - SECTION_SCROLL_OFFSET, maxTop));
+}
+
 export function ShellProvider({ children }: { children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState<SectionId>("hello");
   const [mobileTab, setMobileTab] = useState<MobileTab>("content");
@@ -94,45 +112,108 @@ export function ShellProvider({ children }: { children: React.ReactNode }) {
           if (!main) return;
           const target = main.querySelector<HTMLElement>(`#sec-${id}`);
           if (!target) return;
-          const mainRect = main.getBoundingClientRect();
-          const targetRect = target.getBoundingClientRect();
-          const top = main.scrollTop + (targetRect.top - mainRect.top) - 16;
-          // On mobile we need a smaller intersection band (dock at bottom).
-          const maxTop = Math.max(0, main.scrollHeight - main.clientHeight);
-          main.scrollTo({ top: Math.min(top, maxTop), behavior: "smooth" });
+          main.scrollTo({ top: sectionScrollTop(main, target), behavior: "smooth" });
         });
       });
     },
     [pickActiveMain],
   );
 
-  // Deep-link: on first paint, if the URL points at a known section, jump to
-  // it. Waits for a main to register before scrolling.
-  const didInitialJump = useRef(false);
-  useEffect(() => {
-    if (didInitialJump.current) return;
-    const target = readSectionFromUrl();
-    if (!target) {
-      didInitialJump.current = true;
-      return;
-    }
-    if (!pickActiveMain()) return;
-    didInitialJump.current = true;
-    queueMicrotask(() => goToSection(target));
-  }, [pickActiveMain, goToSection]);
+  // Deep-link: pendingTarget is non-null while we're trying to land on a
+  // URL-specified section. URL-sync defers to it so an intermediate "hello"
+  // (from scroll-spy after the static→PanelGroup remount) can't clobber the
+  // hash before we land.
+  const pendingTarget = useRef<SectionId | null>(null);
 
-  // URL sync: keep the hash in step with whatever section is active so the
-  // current view is shareable. replaceState — no history pollution.
+  // Run the deep-link by polling. The desktop/tablet layout first renders a
+  // static fallback and then remounts inside PanelGroup, so the first scroll
+  // can land on a soon-to-be-discarded main. Keep polling until the active
+  // main is both at the target and stable for a short window.
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const target = readSectionFromUrl();
+    if (!target) return;
+    pendingTarget.current = target;
+
+    let attempts = 0;
+    let timeoutId: number | null = null;
+    let stableTicks = 0;
+    let lastMain: HTMLElement | null = null;
+
+    const findMain = (): HTMLElement | null => {
+      const layout = activeLayout();
+      return document.querySelector<HTMLElement>(`main[data-layout="${layout}"]`);
+    };
+
+    const tick = () => {
+      timeoutId = null;
+      if (!pendingTarget.current) return;
+      attempts += 1;
+
+      const main = findMain();
+      if (main !== lastMain) {
+        lastMain = main;
+        stableTicks = 0;
+      }
+
+      if (main) {
+        const el = main.querySelector<HTMLElement>(`#sec-${target}`);
+        if (el && main.scrollHeight > main.clientHeight + 4) {
+          const top = sectionScrollTop(main, el);
+          console.debug("[hash-scroll] " + JSON.stringify({
+            attempt: attempts,
+            stableTicks,
+            target,
+            top,
+            scrollTop: main.scrollTop,
+            scrollHeight: main.scrollHeight,
+            clientHeight: main.clientHeight,
+          }));
+
+          if (Math.abs(main.scrollTop - top) > 2) {
+            stableTicks = 0;
+            main.scrollTo({ top, behavior: "auto" });
+          } else {
+            stableTicks += 1;
+            if (stableTicks >= 4) {
+              setActiveSection(target);
+              pendingTarget.current = null;
+              return;
+            }
+          }
+        } else {
+          stableTicks = 0;
+        }
+      } else {
+        stableTicks = 0;
+      }
+
+      if (attempts > 80) {
+        pendingTarget.current = null;
+        return;
+      }
+      timeoutId = window.setTimeout(tick, 50);
+    };
+
+    tick();
+    return () => {
+      if (timeoutId !== null) window.clearTimeout(timeoutId);
+    };
+  }, []);
+
+  // URL sync: mirror activeSection into the hash. Skipped while a deep-link
+  // is in flight, otherwise an intermediate scroll-spy reading would
+  // overwrite the URL the user actually loaded.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (pendingTarget.current) return;
     const current = window.location.hash.replace(/^#/, "");
     if (current === activeSection) return;
     const url = `${window.location.pathname}${window.location.search}#${activeSection}`;
     window.history.replaceState(null, "", url);
   }, [activeSection]);
 
-  // Browser back/forward: if the user navigates via history and the hash
-  // changes to another section, scroll to it.
+  // Browser back/forward: re-deep-link when the hash changes externally.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const onHashChange = () => {

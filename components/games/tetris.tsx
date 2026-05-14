@@ -447,7 +447,7 @@ export function TetrisGame({ compact = false }: { compact?: boolean }) {
                   "inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px -10px rgba(0,0,0,0.5)",
               }}
             />
-            {/* Floating next-piece chip — same placement on mobile + desktop. */}
+            {/* Floating next-piece chip, same placement on mobile + desktop. */}
             <div
               className={`absolute flex flex-col items-center gap-0.5 rounded-md border border-border bg-bg/85 backdrop-blur ${
                 compact
@@ -520,7 +520,7 @@ export function TetrisGame({ compact = false }: { compact?: boolean }) {
         </FitBox>
       </div>
 
-      {/* Always-visible control row — fills horizontal space below the canvas
+      {/* Always-visible control row, fills horizontal space below the canvas
           and gives touch users explicit controls. */}
       <div
         className={`mx-auto grid w-full grid-cols-5 ${
