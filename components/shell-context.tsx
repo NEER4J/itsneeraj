@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 
@@ -41,6 +42,21 @@ function activeLayout(): LayoutId {
   if (window.matchMedia("(min-width: 1024px)").matches) return "desktop";
   if (window.matchMedia("(min-width: 768px)").matches) return "tablet";
   return "mobile";
+}
+
+const VALID_SECTIONS = new Set<string>(SECTIONS.map((s) => s.id));
+
+function normalizeSection(raw: string | null | undefined): SectionId | null {
+  if (!raw) return null;
+  const clean = raw.toLowerCase().replace(/^sec-/, "");
+  return VALID_SECTIONS.has(clean) ? (clean as SectionId) : null;
+}
+
+function readSectionFromUrl(): SectionId | null {
+  if (typeof window === "undefined") return null;
+  const fromHash = normalizeSection(window.location.hash.replace(/^#/, ""));
+  if (fromHash) return fromHash;
+  return normalizeSection(new URLSearchParams(window.location.search).get("section"));
 }
 
 export function ShellProvider({ children }: { children: React.ReactNode }) {
@@ -89,6 +105,43 @@ export function ShellProvider({ children }: { children: React.ReactNode }) {
     },
     [pickActiveMain],
   );
+
+  // Deep-link: on first paint, if the URL points at a known section, jump to
+  // it. Waits for a main to register before scrolling.
+  const didInitialJump = useRef(false);
+  useEffect(() => {
+    if (didInitialJump.current) return;
+    const target = readSectionFromUrl();
+    if (!target) {
+      didInitialJump.current = true;
+      return;
+    }
+    if (!pickActiveMain()) return;
+    didInitialJump.current = true;
+    queueMicrotask(() => goToSection(target));
+  }, [pickActiveMain, goToSection]);
+
+  // URL sync: keep the hash in step with whatever section is active so the
+  // current view is shareable. replaceState — no history pollution.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const current = window.location.hash.replace(/^#/, "");
+    if (current === activeSection) return;
+    const url = `${window.location.pathname}${window.location.search}#${activeSection}`;
+    window.history.replaceState(null, "", url);
+  }, [activeSection]);
+
+  // Browser back/forward: if the user navigates via history and the hash
+  // changes to another section, scroll to it.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onHashChange = () => {
+      const target = readSectionFromUrl();
+      if (target) goToSection(target);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [goToSection]);
 
   // Scroll-spy: observe sections inside both mains. Only the visible main's
   // sections will fire intersection events (display:none nodes have no layout).
