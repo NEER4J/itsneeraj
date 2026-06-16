@@ -165,7 +165,7 @@ export const META = {
     { label: "linkedin", href: "https://linkedin.com/in/neer4j" },
     { label: "github", href: "https://github.com/NEER4J" },
     { label: "x", href: "https://x.com/NEER4J__" },
-    { label: "instagram", href: "https://instagram.com/" },
+    { label: "instagram", href: "https://www.instagram.com/neerajsharma.__/" },
   ],
 };
 

@@ -21,7 +21,6 @@ import { GamesPicker } from "./games/picker";
 import { Clock } from "./clock";
 import { Socials } from "./socials";
 import { ThemeStrip } from "./theme-strip";
-import { StickyNotes } from "./sticky-notes";
 import { MobileTopBar } from "./mobile-top-bar";
 import {
   type LayoutId,
@@ -52,12 +51,12 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="hidden h-full lg:block">
         <div className="h-full overflow-hidden p-5">
           {mounted ? (
-            <PanelGroup direction="horizontal" autoSaveId="neeraj.cols.v1">
+            <PanelGroup direction="horizontal" autoSaveId="neeraj.cols.v2">
               <Panel defaultSize={22} minSize={14} maxSize={32}>
                 <LeftStack />
               </Panel>
               <ResizeHandle direction="horizontal" />
-              <Panel defaultSize={50} minSize={32}>
+              <Panel defaultSize={78} minSize={32}>
                 <div
                   className={`${CARD} card-enter`}
                   data-card-accent="rainbow"
@@ -66,18 +65,13 @@ function Layout({ children }: { children: React.ReactNode }) {
                   <Main layoutId="desktop">{children}</Main>
                 </div>
               </Panel>
-              <ResizeHandle direction="horizontal" />
-              <Panel defaultSize={28} minSize={20} maxSize={45}>
-                <RightStack />
-              </Panel>
             </PanelGroup>
           ) : (
-            <div className="grid h-full grid-cols-[280px_minmax(0,1fr)_400px] gap-5">
+            <div className="grid h-full grid-cols-[280px_minmax(0,1fr)] gap-5">
               <LeftStack />
               <div className={CARD}>
                 <Main layoutId="desktop">{children}</Main>
               </div>
-              <RightStack />
             </div>
           )}
         </div>
@@ -92,8 +86,6 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="md:hidden">
         <MobileLayout>{children}</MobileLayout>
       </div>
-
-      <StickyNotes />
     </div>
   );
 }
@@ -199,33 +191,6 @@ function LeftStack() {
         </div>
       </Panel>
     </PanelGroup>
-  );
-}
-
-function RightStack() {
-  const [gameActive, setGameActive] = useState(false);
-
-  return (
-    <div className="flex h-full flex-col gap-5">
-      <div
-        className={`overflow-hidden rounded-md bg-bg-elevated card-enter ${
-          gameActive ? "min-h-0 flex-1" : "flex-none"
-        }`}
-        data-card-accent="red"
-        style={{ animationDelay: "100ms" }}
-      >
-        <GamePane onActiveChange={setGameActive} />
-      </div>
-      <div
-        className={`overflow-hidden rounded-md bg-bg-elevated card-enter ${
-          gameActive ? "h-[260px] flex-none" : "min-h-0 flex-1"
-        }`}
-        data-card-accent="yellow"
-        style={{ animationDelay: "160ms" }}
-      >
-        <ChatPanel />
-      </div>
-    </div>
   );
 }
 
