@@ -105,14 +105,15 @@ export const STACK = [
 
 // What I'm focused on right now. `live` items are actively in progress and get
 // a pulsing marker; the rest are recent ships / state.
-export type NowItem = { text: string; live?: boolean };
+export type NowItem = { text: string; live?: boolean; href?: string };
 export const NOW: NowItem[] = [
-  { text: "Building Docsiv, an AI document hub for agencies", live: true },
-  { text: "Building AI agents & MCP servers", live: true },
-  { text: "Exploring better AI UX", live: true },
-  { text: "Shipped background AI generation" },
-  { text: "Redesigned the Docsiv editor" },
-  { text: "Living in Bangalore" },
+  { text: "Preparing Docsiv for launch 🚀", live: true },
+  { text: "Onboarding the first agencies to Docsiv", live: true },
+  { text: "Building AI agents and MCPs for Docsiv", live: true },
+  { text: "Shipping new features every week" },
+  { text: "Talking to users and chasing product-market fit" },
+  { text: "Living in Bangalore and drinking too much filter coffee ☕" },
+  { text: "This site is open source", href: "https://github.com/NEER4J/neeraj-portfolio" },
 ];
 export const NOW_UPDATED = "Updated July 2026";
 

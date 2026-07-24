@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 };
 
 const JUMP_LINKS: { label: string; href: string }[] = [
-  { label: "Hello", href: "/#sec-hello" },
-  { label: "Work", href: "/#sec-work" },
-  { label: "Experience", href: "/#sec-about" },
-  { label: "Contact", href: "/#sec-contact" },
+  { label: "Hello", href: "/#hello" },
+  { label: "Work", href: "/#work" },
+  { label: "Experience", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function NotFound() {

@@ -3,6 +3,8 @@ import { ThemeToggle } from "@/components/portfolio/theme-toggle";
 import { LocalTime } from "@/components/portfolio/local-time";
 import { WorkSlider } from "@/components/portfolio/work-slider";
 import { Activity } from "@/components/portfolio/activity";
+import { Pet } from "@/components/portfolio/pet";
+import { Loader } from "@/components/portfolio/loader";
 import { getContributions } from "@/components/portfolio/github";
 import {
   INTRO,
@@ -23,10 +25,13 @@ export default async function HomePage() {
   const contributions = await getContributions("NEER4J");
 
   return (
-    <div className="mx-auto w-full max-w-[620px] px-6 pb-28 pt-14 sm:pt-20">
+    <>
+      <Loader />
+      <Pet />
+      <div className="mx-auto w-full max-w-[620px] px-6 pb-28 pt-14 sm:pt-20">
       {/* Header ------------------------------------------------------- */}
-      <header className="flex items-center justify-between">
-        <a href="#sec-hello" aria-label="Neeraj Sharma" className="inline-flex">
+      <header className="v2-fade flex items-center justify-between">
+        <a href="#hello" aria-label="Neeraj Sharma" className="inline-flex">
           <Image
             src="/image copy.png"
             alt="Neeraj Sharma"
@@ -41,7 +46,7 @@ export default async function HomePage() {
 
       {/* Intro -------------------------------------------------------- */}
       <section
-        id="sec-hello"
+        id="hello"
         className="v2-fade mt-16 scroll-mt-8"
         style={{ animationDelay: "60ms" }}
       >
@@ -84,7 +89,7 @@ export default async function HomePage() {
 
       {/* Selected work ----------------------------------------------- */}
       <section
-        id="sec-work"
+        id="work"
         className="v2-fade mt-20 scroll-mt-8"
         style={{ animationDelay: "140ms" }}
       >
@@ -93,7 +98,7 @@ export default async function HomePage() {
       </section>
 
       {/* Experience -------------------------------------------------- */}
-      <Section id="sec-about" label="experience" delay="60ms">
+      <Section id="about" label="experience" delay="60ms">
         <ul>
           {EXPERIENCE.map((r) => (
             <li
@@ -154,20 +159,39 @@ export default async function HomePage() {
                   item.live ? "bg-[var(--gh3)] pulse-soft" : "bg-[var(--v2-faint)]"
                 }`}
               />
-              <span
-                className={`text-[15px] leading-[1.55] ${
-                  item.live ? "text-[var(--v2-fg)]" : "text-[var(--v2-fg-soft)]"
-                }`}
-              >
-                {item.text}
-              </span>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-baseline gap-1.5 text-[15px] leading-[1.55] text-[var(--v2-fg-soft)]"
+                >
+                  <span className="v2-link decoration-[var(--v2-line-strong)]">
+                    {item.text}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="text-[12px] text-[var(--v2-muted)] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  >
+                    ↗
+                  </span>
+                </a>
+              ) : (
+                <span
+                  className={`text-[15px] leading-[1.55] ${
+                    item.live ? "text-[var(--v2-fg)]" : "text-[var(--v2-fg-soft)]"
+                  }`}
+                >
+                  {item.text}
+                </span>
+              )}
             </li>
           ))}
         </ul>
       </section>
 
       {/* Contact ----------------------------------------------------- */}
-      <Section id="sec-contact" label="contact" delay="60ms">
+      <Section id="contact" label="contact" delay="60ms">
         <p className="text-[15px] leading-[1.72] text-[var(--v2-fg-soft)]">
           Building Docsiv. Open to consulting, startup collaborations, and
           interesting AI product conversations. Best path is a{" "}
@@ -214,11 +238,12 @@ export default async function HomePage() {
       <Activity days={contributions} />
 
       {/* Footer ------------------------------------------------------ */}
-      <footer className="mt-24 flex items-center justify-between border-t border-[var(--v2-line)] pt-6 text-[12px] text-[var(--v2-muted)]">
+      <footer className="v2-fade mt-24 flex items-center justify-between border-t border-[var(--v2-line)] pt-6 text-[12px] text-[var(--v2-muted)]">
         <LocalTime />
         <span>{FOOTER_NOTE}</span>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
 

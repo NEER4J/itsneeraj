@@ -366,7 +366,7 @@ body {
   margin-inline: calc(50% - 50vw);
 }
 
-/* Smooth in-page anchor jumps (e.g. #sec-contact), disabled for reduced motion. */
+/* Smooth in-page anchor jumps (e.g. #contact), disabled for reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -475,6 +475,289 @@ html {
   z-index: 1;
 }
 
+/* ── Pixel pet ───────────────────────────────────────────────── */
+#pet {
+  --cell: 5px; /* size of one sprite pixel. scale here */
+  --s: calc(var(--cell) * 21); /* square stage: 105px at cell 5 */
+
+  /* light palette */
+  --c-line: #1b1410;
+  --c-body: #e2551b;
+  --c-glint: #f2fdee;
+  --c-mint: #ddf1d9;
+  --c-green: #178f39;
+  --p-shadow: 0 calc(var(--cell) * 0.6) 0 rgba(27, 20, 16, 0.15);
+  --p-glow: none;
+  --bub-bg: #fffdf4;
+  --bub-ink: #1b1410;
+  --bub-line: #1b1410;
+  --heart: #e2551b;
+  --star: #178f39;
+  --zzz: #a89a8c;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--s);
+  height: var(--s);
+  z-index: 99999;
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+}
+/* dark palette — follows system when no explicit choice */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-v2-theme]) #pet {
+    --c-line: #160e1b;
+    --c-body: #ff6a2b;
+    --c-glint: #fff3d2;
+    --c-mint: #c2e7c5;
+    --c-green: #27c355;
+    --p-shadow: 0 calc(var(--cell) * 0.6) 0 rgba(0, 0, 0, 0.55);
+    --p-glow: drop-shadow(0 0 3px rgba(255, 122, 54, 0.45));
+    --bub-bg: #1d1829;
+    --bub-ink: #efe9ff;
+    --bub-line: #4c4169;
+    --heart: #ff8a5c;
+    --star: #27c355;
+    --zzz: #7d739e;
+  }
+}
+/* dark palette — explicit theme toggle */
+[data-v2-theme="dark"] #pet {
+  --c-line: #160e1b;
+  --c-body: #ff6a2b;
+  --c-glint: #fff3d2;
+  --c-mint: #c2e7c5;
+  --c-green: #27c355;
+  --p-shadow: 0 calc(var(--cell) * 0.6) 0 rgba(0, 0, 0, 0.55);
+  --p-glow: drop-shadow(0 0 3px rgba(255, 122, 54, 0.45));
+  --bub-bg: #1d1829;
+  --bub-ink: #efe9ff;
+  --bub-line: #4c4169;
+  --heart: #ff8a5c;
+  --star: #27c355;
+  --zzz: #7d739e;
+}
+
+#pet.docking {
+  transition: left 0.4s cubic-bezier(0.3, 1.5, 0.4, 1), top 0.4s cubic-bezier(0.3, 1.5, 0.4, 1);
+}
+#pet.st-drag {
+  cursor: grabbing;
+}
+#pet .rot {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.3, 1.4, 0.4, 1);
+  will-change: transform;
+}
+#pet svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  shape-rendering: crispEdges;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.14s steps(2);
+  filter: var(--p-shadow) var(--p-glow);
+}
+#pet:focus-visible svg {
+  filter: var(--p-shadow) drop-shadow(0 0 0 var(--c-glint)) drop-shadow(0 0 4px var(--c-body));
+}
+
+/* ---- frame toggles ---- */
+#pet .g-lid,
+#pet .g-happy,
+#pet .g-browUp,
+#pet .g-browWorry {
+  display: none;
+}
+#pet svg.blink .g-lid {
+  display: block;
+}
+#pet svg.blink .g-eye {
+  display: none;
+}
+#pet svg.happy .g-happy {
+  display: block;
+}
+#pet svg.happy .g-eye {
+  display: none;
+}
+#pet svg.alert .g-brow {
+  display: none;
+}
+#pet svg.alert .g-browUp {
+  display: block;
+}
+#pet svg.worry .g-brow {
+  display: none;
+}
+#pet svg.worry .g-browWorry {
+  display: block;
+}
+
+/* ---- 2-frame walk (translate is in SVG user units) ---- */
+#pet .g-legL,
+#pet .g-legR {
+  transform: translateY(0);
+}
+#pet svg.step .g-legL {
+  transform: translateY(-1px);
+}
+#pet svg.step2 .g-legR {
+  transform: translateY(-1px);
+}
+
+/* ---- dangling kick while held ---- */
+#pet svg.dangle .g-legL {
+  animation: kickA 0.46s steps(3) infinite alternate;
+  transform-origin: 45% 52%;
+}
+#pet svg.dangle .g-legR {
+  animation: kickB 0.46s steps(3) infinite alternate;
+  transform-origin: 56% 52%;
+}
+@keyframes kickA {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(12deg);
+  }
+}
+@keyframes kickB {
+  from {
+    transform: rotate(11deg);
+  }
+  to {
+    transform: rotate(-9deg);
+  }
+}
+
+#pet svg.squash {
+  animation: sq 0.32s steps(4) both;
+}
+@keyframes sq {
+  0% {
+    transform: rotate(var(--tilt, 0deg)) scale(1.16, 0.8);
+  }
+  55% {
+    transform: rotate(var(--tilt, 0deg)) scale(0.94, 1.08);
+  }
+  100% {
+    transform: rotate(var(--tilt, 0deg)) scale(1, 1);
+  }
+}
+#pet svg.hop {
+  animation: hop 0.6s steps(6) both;
+}
+@keyframes hop {
+  0% {
+    transform: rotate(var(--tilt, 0deg)) scale(1.2, 0.8) translateY(0);
+  }
+  25% {
+    transform: rotate(var(--tilt, 0deg)) scale(0.86, 1.2) translateY(calc(var(--cell) * -4));
+  }
+  60% {
+    transform: rotate(var(--tilt, 0deg)) scale(1, 1) translateY(calc(var(--cell) * -5));
+  }
+  85% {
+    transform: rotate(var(--tilt, 0deg)) scale(1.14, 0.86) translateY(0);
+  }
+  100% {
+    transform: rotate(var(--tilt, 0deg)) scale(1, 1) translateY(0);
+  }
+}
+
+/* ---- speech bubble ---- */
+#pet .bub {
+  position: absolute;
+  background: var(--bub-bg);
+  color: var(--bub-ink);
+  border: 2px solid var(--bub-line);
+  font-family: var(--font-press-start), monospace;
+  font-size: 7px;
+  line-height: 1.5;
+  padding: 6px 8px;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 0.1s steps(2), transform 0.1s steps(2);
+  pointer-events: none;
+}
+#pet .bub.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+#pet .bub::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--bub-bg);
+  border: 2px solid var(--bub-line);
+  border-top: none;
+  border-left: none;
+}
+#pet .bub[data-tail="down"]::after {
+  bottom: -6px;
+  left: 11px;
+  transform: rotate(45deg);
+}
+#pet .bub[data-tail="up"]::after {
+  top: -6px;
+  left: 11px;
+  transform: rotate(-135deg);
+}
+#pet .bub[data-tail="left"]::after {
+  left: -6px;
+  top: 8px;
+  transform: rotate(135deg);
+}
+#pet .bub[data-tail="right"]::after {
+  right: -6px;
+  top: 8px;
+  transform: rotate(-45deg);
+}
+
+/* ---- particles ---- */
+.pet-part {
+  position: fixed;
+  z-index: 99998;
+  pointer-events: none;
+  font-family: var(--font-press-start), monospace;
+  font-size: 9px;
+  animation: pfloat 1.2s steps(6) forwards;
+}
+@keyframes pfloat {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx, 0px), -38px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #pet.docking,
+  #pet .rot,
+  #pet svg {
+    transition: none;
+    animation: none !important;
+  }
+  #pet svg.dangle .g-legL,
+  #pet svg.dangle .g-legR {
+    animation: none;
+  }
+  .pet-part {
+    animation-duration: 0.01s;
+  }
+}
+
 /* Dotted backdrop panel that a work screenshot floats on */
 .v2-backdrop {
   background-color: var(--v2-backdrop);
@@ -517,4 +800,13 @@ html {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Preloader: while booting, keep content hidden (overriding reduced-motion too)
+   so nothing shows behind the centered pet. Removing `.preload` on <html> lets
+   the .v2-fade sections run their staggered reveal. */
+html.preload .v2-fade {
+  animation: none !important;
+  opacity: 0 !important;
+  transform: translateY(10px);
 }
