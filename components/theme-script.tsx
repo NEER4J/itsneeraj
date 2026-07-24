@@ -1,9 +1,17 @@
+import Script from "next/script";
+
 /**
- * Inline script injected into <head> before hydration so the saved preference
- * is applied before paint. Resolves "system" (or missing) to dark/light using
- * prefers-color-scheme. Avoids any flash from a default to the saved theme.
+ * Pre-hydration theme init. Applies the saved light/dark choice onto <html>
+ * before paint so there's no flash. With no saved choice, CSS follows the
+ * system preference. Rendered via next/script (beforeInteractive) so React
+ * doesn't warn about inline <script> tags in the component tree.
  */
 export function ThemeScript() {
-  const code = `(function(){try{var pref=localStorage.getItem("neeraj.theme");var resolved={dark:1,light:1,terminal:1,cyber:1};var p=pref&&(resolved[pref]||pref==="system")?pref:"system";var t=p;if(p==="system"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}var d=document.documentElement;d.setAttribute("data-theme",t);d.setAttribute("data-theme-pref",p);}catch(e){var d=document.documentElement;d.setAttribute("data-theme","dark");d.setAttribute("data-theme-pref","system");}})();`;
-  return <script dangerouslySetInnerHTML={{ __html: code }} />;
+  const code = `(function(){try{var v=localStorage.getItem("neeraj.v2.theme");if(v==="light"||v==="dark"){document.documentElement.setAttribute("data-v2-theme",v);}}catch(e){}})();`;
+  return (
+    // beforeInteractive in the root layout is the App Router pattern for a
+    // pre-hydration script; the lint rule targets the legacy pages/_document.
+    // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
+    <Script id="theme-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: code }} />
+  );
 }

@@ -8,17 +8,12 @@ export default function manifest(): MetadataRoute.Manifest {
       "Full-stack engineer, five years building AI products. Building Docsiv right now.",
     start_url: "/",
     display: "standalone",
-    background_color: "#050506",
-    theme_color: "#050506",
+    background_color: "#fafafa",
+    theme_color: "#fafafa",
     icons: [
       {
-        src: "/icon.png",
-        sizes: "any",
-        type: "image/png",
-      },
-      {
-        src: "/apple-icon.png",
-        sizes: "any",
+        src: "/icon",
+        sizes: "64x64",
         type: "image/png",
       },
     ],

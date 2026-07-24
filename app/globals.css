@@ -322,3 +322,199 @@ body {
   --border: #1d3557;
   color: #1d3557;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   V2: a fresh, minimal, editorial theme.
+   Fully self-contained: its own tokens, its own two-theme system
+   (light / dark) scoped under .v2-scope, independent of the legacy
+   four-theme shell above. Toggled via [data-v2-theme] on .v2-scope.
+   ────────────────────────────────────────────────────────────── */
+
+.v2-scope {
+  /* light */
+  --v2-bg: #fafafa;
+  --v2-surface: #ffffff;
+  --v2-fg: #141414;
+  --v2-fg-soft: #696969;
+  --v2-muted: #969696;
+  --v2-faint: #c2c2c2;
+  --v2-line: #ececec;
+  --v2-line-strong: #dcdcdc;
+  --v2-hover: rgba(20, 20, 20, 0.04);
+  --v2-backdrop: #f2f2f2;
+  --v2-dot: rgba(20, 30, 45, 0.07);
+  --gh0: #e9e9ec;
+  --gh1: #cbd9ff;
+  --gh2: #8fb0ff;
+  --gh3: #4f83f5;
+  --gh4: #1f5fe0;
+
+  --v2-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --v2-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --v2-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  background: var(--v2-bg);
+  color: var(--v2-fg);
+  font-family: var(--v2-sans);
+  overflow-x: hidden;
+  transition: background-color 260ms ease, color 260ms ease;
+}
+
+/* Break an element out of the centered column to full viewport width */
+.v2-bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+/* Smooth in-page anchor jumps (e.g. #sec-contact), disabled for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Keyboard focus ring, scoped to the v2 UI. */
+.v2-scope a:focus-visible,
+.v2-scope button:focus-visible {
+  outline: 2px solid var(--v2-fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Root background follows the theme so overscroll/rubber-band matches the page.
+   Declared after the legacy html,body rule above so it wins by source order. */
+html {
+  background: #fafafa;
+  color-scheme: light;
+}
+:root[data-v2-theme="light"] {
+  background: #fafafa;
+  color-scheme: light;
+}
+:root[data-v2-theme="dark"] {
+  background: #0b0b0d;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-v2-theme]) {
+    background: #0b0b0d;
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-v2-theme]) .v2-scope {
+    --v2-bg: #0b0b0d;
+    --v2-surface: #141416;
+    --v2-fg: #eeede9;
+    --v2-fg-soft: #a4a4a0;
+    --v2-muted: #6b6b70;
+    --v2-faint: #47474c;
+    --v2-line: #212124;
+    --v2-line-strong: #2c2c30;
+    --v2-hover: rgba(255, 255, 255, 0.045);
+    --v2-backdrop: #191919;
+    --v2-dot: rgba(190, 205, 230, 0.07);
+    --gh0: #1d1d21;
+    --gh1: #21386a;
+    --gh2: #2e5bad;
+    --gh3: #3b82f6;
+    --gh4: #79a8ff;
+  }
+}
+
+:root[data-v2-theme="dark"] .v2-scope {
+  --v2-bg: #0b0b0d;
+  --v2-surface: #141416;
+  --v2-fg: #eeede9;
+  --v2-fg-soft: #a4a4a0;
+  --v2-muted: #6b6b70;
+  --v2-faint: #47474c;
+  --v2-line: #212124;
+  --v2-line-strong: #2c2c30;
+  --v2-hover: rgba(255, 255, 255, 0.045);
+  --v2-backdrop: #191919;
+  --v2-dot: rgba(190, 205, 230, 0.07);
+  --gh0: #1d1d21;
+  --gh1: #21386a;
+  --gh2: #2e5bad;
+  --gh3: #3b82f6;
+  --gh4: #79a8ff;
+}
+
+.v2-scope ::selection {
+  background: var(--v2-fg);
+  color: var(--v2-bg);
+}
+
+/* Underlined link that reveals on hover, offset so it reads clean */
+.v2-link {
+  text-decoration-line: underline;
+  text-decoration-color: var(--v2-faint);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 180ms ease, color 180ms ease;
+}
+.v2-link:hover {
+  color: var(--v2-fg);
+  text-decoration-color: var(--v2-fg);
+}
+
+/* Theme switch: circular reveal that flows out from the toggle button.
+   The JS animates ::view-transition-new(root)'s clip-path; here we just stop
+   the default cross-fade and keep the new (post-switch) snapshot on top. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 0;
+}
+::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* Dotted backdrop panel that a work screenshot floats on */
+.v2-backdrop {
+  background-color: var(--v2-backdrop);
+  background-image: radial-gradient(var(--v2-dot) 1.1px, transparent 1.1px);
+  background-size: 11px 11px;
+  background-position: center;
+}
+
+/* Section label: technical monospace eyebrow with a "/" prefix (v1-style). */
+.v2-label {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--v2-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--v2-muted);
+}
+.v2-label::before {
+  content: "/";
+  margin-right: 0.7em;
+  color: var(--v2-faint);
+}
+
+.v2-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: v2-fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes v2-fade-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-fade {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

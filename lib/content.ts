@@ -90,6 +90,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "speediq",
     name: "SpeedIQ",
+    url: "https://app.speediq.ai",
     year: "2025",
     story:
       "WhatsApp and email marketing for teams. Built on Meta's Business API: embedded signup, broadcasts, chatbots, live chat, campaign analytics.",
@@ -124,21 +125,6 @@ export const PROJECTS: Project[] = [
       pattern: "stripes",
       tag: "education SaaS",
       image: "/projects/tbs.png",
-    },
-  },
-  {
-    slug: "uk-postcode",
-    name: "UK Postcode API",
-    year: "2022",
-    story:
-      "Address lookup API. Auth, rate limiting, usage analytics, dashboard.",
-    stack: ["Node.js", "PostgreSQL", "API gateway"],
-    metric: "1,000 clients · 100k fetches",
-    thumb: {
-      color: "#1e293b",
-      pattern: "checks",
-      tag: "API · auth",
-      image: "/projects/postcode.png",
     },
   },
 ];

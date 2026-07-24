@@ -17,7 +17,8 @@
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^2.1.9",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "swiper": "^14.0.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

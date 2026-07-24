@@ -1,14 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme-script";
-import { ThemeProvider } from "@/components/theme-provider";
-import { AudienceProvider } from "@/components/audience-provider";
-import { Shell } from "@/components/shell";
 import { META, PROJECTS } from "@/lib/content";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+
+// Fresh type system for the v2 page — a clean grotesque paired with an
+// editorial serif for accents. Kept separate from the Geist stack the
+// legacy shell uses.
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+});
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 const SITE_URL = "https://itsneeraj.com";
 const SITE_NAME = "Neeraj Sharma";
@@ -91,8 +102,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#050506" },
-    { media: "(prefers-color-scheme: light)", color: "#ececef" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0d" },
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
   ],
 };
 
@@ -190,22 +201,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <head>
         <ThemeScript />
         <PersonJsonLd />
         <WebsiteJsonLd />
       </head>
-      <body className="min-h-full">
-        <ThemeProvider>
-          <AudienceProvider>
-            <Shell>{children}</Shell>
-          </AudienceProvider>
-        </ThemeProvider>
-      </body>
+      <body className="v2-scope min-h-dvh">{children}</body>
     </html>
   );
 }
