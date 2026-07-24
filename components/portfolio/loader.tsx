@@ -14,10 +14,20 @@ export function Loader() {
     const html = document.documentElement;
     if (!html.classList.contains("preload")) return;
 
+    // First-ever visit: hold the intro for ~2s. After that, the loading time is
+    // dynamic — it lasts only as long as the page actually takes to load.
+    let firstVisit = false;
+    try {
+      if (!localStorage.getItem("neeraj.visited")) {
+        firstVisit = true;
+        localStorage.setItem("neeraj.visited", "1");
+      }
+    } catch {}
+
     let done = false;
     const start = performance.now();
-    const MIN = 700;
-    const MAX = 4500;
+    const MIN = firstVisit ? 2000 : 300;
+    const MAX = firstVisit ? 5000 : 4500;
 
     const reveal = () => {
       if (done) return;

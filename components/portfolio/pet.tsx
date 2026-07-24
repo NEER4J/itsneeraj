@@ -27,8 +27,8 @@ export function Pet() {
 
     /* ======================= CONFIG ======================= */
     const CFG = {
-      startEdge: "left" as Edge,
-      startFrac: 0.5,
+      startEdge: "bottom" as Edge,
+      startFrac: 0,
       margin: 22,
       peekCells: { idle: 12, alert: 15, sleep: 8, happy: 16, drag: 12 } as Record<string, number>,
       sleepAfter: 15000,

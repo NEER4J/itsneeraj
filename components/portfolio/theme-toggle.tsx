@@ -67,46 +67,24 @@ export function ThemeToggle() {
       Math.max(y, window.innerHeight - y),
     );
 
-    // "Blur circle": a white, Gaussian-blurred circle used as a mask on the
-    // new-theme snapshot. Scaling mask-size (with mask-position tracking the
-    // origin) grows a soft-edged circle out from the toggle button.
-    const BLUR = 3; // stdDeviation in the 100-unit viewBox → feathered edge
-    const svg =
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">` +
-      `<filter id="b"><feGaussianBlur stdDeviation="${BLUR}"/></filter>` +
-      `<circle cx="50" cy="50" r="40" fill="white" filter="url(#b)"/></svg>`;
-    const maskImage = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-    const size = endRadius * 2.6; // circle covers r=0.4*size ⇒ full-screen + feather
-
-    const from: Keyframe = {
-      maskImage,
-      maskRepeat: "no-repeat",
-      maskSize: "0px",
-      maskPosition: `${x}px ${y}px`,
-      WebkitMaskImage: maskImage,
-      WebkitMaskRepeat: "no-repeat",
-      WebkitMaskSize: "0px",
-      WebkitMaskPosition: `${x}px ${y}px`,
-    };
-    const to: Keyframe = {
-      maskImage,
-      maskRepeat: "no-repeat",
-      maskSize: `${size}px`,
-      maskPosition: `${x - size / 2}px ${y - size / 2}px`,
-      WebkitMaskImage: maskImage,
-      WebkitMaskRepeat: "no-repeat",
-      WebkitMaskSize: `${size}px`,
-      WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-    };
-
+    // Lightweight circular reveal: animate clip-path on the new-theme snapshot.
+    // clip-path is compositor-friendly (unlike an animated blurred mask), so
+    // the switch stays smooth even on a content-heavy page.
     const transition = doc.startViewTransition(() => commit(next));
     transition.ready.then(() => {
-      document.documentElement.animate([from, to], {
-        duration: 700,
-        easing: "cubic-bezier(0.2, 0, 0.2, 1)",
-        fill: "forwards",
-        pseudoElement: "::view-transition-new(root)",
-      });
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 420,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
     });
   }
 
