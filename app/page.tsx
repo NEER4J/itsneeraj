@@ -5,6 +5,7 @@ import { WorkSlider } from "@/components/portfolio/work-slider";
 import { Activity } from "@/components/portfolio/activity";
 import { Pet } from "@/components/portfolio/pet";
 import { Loader } from "@/components/portfolio/loader";
+import { SideNav } from "@/components/portfolio/side-nav";
 import { getContributions } from "@/components/portfolio/github";
 import {
   INTRO,
@@ -28,6 +29,7 @@ export default async function HomePage() {
     <>
       <Loader />
       <Pet />
+      <SideNav />
       <div className="mx-auto w-full max-w-[620px] px-6 pb-28 pt-14 sm:pt-20">
       {/* Header ------------------------------------------------------- */}
       <header className="v2-fade flex items-center justify-between">
@@ -142,7 +144,7 @@ export default async function HomePage() {
       </div>
 
       {/* Now --------------------------------------------------------- */}
-      <section className="v2-fade mt-20 scroll-mt-8" style={{ animationDelay: "60ms" }}>
+      <section id="now" className="v2-fade mt-20 scroll-mt-8" style={{ animationDelay: "60ms" }}>
         <div className="mb-6 flex items-baseline justify-between gap-4">
           <h2 className="v2-label">now</h2>
           <span className="text-[13px] text-[var(--v2-muted)]">{NOW_UPDATED}</span>
