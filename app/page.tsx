@@ -67,11 +67,11 @@ export default async function HomePage() {
         <div className="mt-6 space-y-5 text-[16px] leading-[1.72] text-[var(--v2-fg-soft)]">
           <p>{INTRO.before}</p>
           <p>
-            Right now I&apos;m building{" "}
+            I built and launched{" "}
             <a href={LINKS.docsiv} target="_blank" rel="noreferrer" className={linkCls}>
               Docsiv
             </a>
-            , an AI-powered document hub for agencies.
+            , an AI-powered document hub for agencies. Now I&apos;m focused on onboarding early users, learning what they need, and building the distribution that helps the product grow.
           </p>
           <p>
             I also lead engineering at{" "}
@@ -195,8 +195,10 @@ export default async function HomePage() {
       {/* Contact ----------------------------------------------------- */}
       <Section id="contact" label="contact" delay="60ms">
         <p className="text-[15px] leading-[1.72] text-[var(--v2-fg-soft)]">
-          Building Docsiv. Open to consulting, startup collaborations, and
-          interesting AI product conversations. Best path is a{" "}
+          I launched Docsiv and am now focused on early customer growth,
+          distribution, and the next useful product decisions. I&apos;m also open
+          to consulting, startup collaborations, and interesting AI product
+          conversations. Best path is a{" "}
           <a
             href={CALL}
             target="_blank"

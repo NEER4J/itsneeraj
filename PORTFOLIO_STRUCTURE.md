@@ -101,8 +101,8 @@ Order top to bottom:
 2. **Audience tabs** (horizontal row): `For anyone`, `Recruiters`, `Devs`, `Founders`, `Designers`. Active tab gets an underline.
 3. **Headline** (large): swaps based on selected audience tab.
 4. **Body paragraph**: short positioning blurb about Virtual Xcellence / Govgrant.ca / SpeedIQ.
-5. **"Currently building" card** (linked to docsiv.com)
-   - Eyebrow with sparkle icon: `Currently building`
+5. **"Now growing" card** (linked to docsiv.com)
+   - Eyebrow with sparkle icon: `Now growing`
    - Title: `Docsiv`
    - Inline description: `AI Documents and Branded Client Portals.`
    - Right side: `docsiv.com ↗`

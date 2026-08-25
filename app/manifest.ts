@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Neeraj Sharma · full-stack engineer, AI products",
     short_name: "Neeraj Sharma",
     description:
-      "Full-stack engineer, five years building AI products. Building Docsiv right now.",
+      "Full-stack engineer building AI products. Founder of Docsiv, now focused on early users and distribution.",
     start_url: "/",
     display: "standalone",
     background_color: "#fafafa",

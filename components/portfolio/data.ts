@@ -33,7 +33,7 @@ export const SELECTED_WORK: Work[] = [
     image: "/projects/docsiv.png?v=2",
     blurb:
       "An AI-powered document hub for agencies: proposals, reports, contracts, presentations, spreadsheets, and client portals in one branded workspace.",
-    metric: "building now",
+    metric: "launched · now growing",
   },
   {
     name: "SpeedIQ",
@@ -107,15 +107,16 @@ export const STACK = [
 // a pulsing marker; the rest are recent ships / state.
 export type NowItem = { text: string; live?: boolean; href?: string };
 export const NOW: NowItem[] = [
-  { text: "Preparing Docsiv for launch 🚀", live: true },
-  { text: "Onboarding the first agencies to Docsiv", live: true },
+  { text: "Launched Docsiv 🚀", live: true },
+  { text: "Onboarding early agencies to Docsiv", live: true },
+  { text: "Testing distribution with agencies", live: true },
   { text: "Building AI agents and MCPs for Docsiv", live: true },
   { text: "Shipping new features every week" },
-  { text: "Talking to users and chasing product-market fit" },
+  { text: "Talking to users and sharpening product-market fit" },
   { text: "Living in Bangalore and drinking too much filter coffee ☕" },
   { text: "This site is open source", href: "https://github.com/NEER4J/neeraj-portfolio" },
 ];
-export const NOW_UPDATED = "Updated July 2026";
+export const NOW_UPDATED = "Updated August 2026";
 
 // X first — that's where the public building happens.
 export const CONTACT = [

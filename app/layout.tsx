@@ -32,7 +32,7 @@ const SITE_NAME = "Neeraj Sharma";
 const TITLE_DEFAULT = "Neeraj Sharma · full-stack engineer, AI products";
 const TITLE_TEMPLATE = "%s · Neeraj Sharma";
 const DESCRIPTION =
-  "Full-stack engineer, five years building AI products. Building Docsiv right now, leading engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence.";
+  "Full-stack engineer building AI products. Founder of Docsiv, now focused on early users and distribution, and lead engineer on Govgrant.ca and SpeedIQ.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

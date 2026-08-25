@@ -9,9 +9,9 @@ Every bit of human-readable copy on the site, UI text, marketing prose, the chat
 - **Site name:** Neeraj Sharma
 - **Default title:** `Neeraj Sharma · full-stack engineer, AI products`
 - **Title template:** `%s · Neeraj Sharma`
-- **Description:** Full-stack engineer, five years building AI products. Building Docsiv right now, leading engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence.
+- **Description:** Full-stack engineer building AI products. Founder of Docsiv, now focused on early users and distribution, and lead engineer on Govgrant.ca and SpeedIQ.
 - **Manifest name:** `Neeraj Sharma · full-stack engineer, AI products`
-- **Manifest description:** Full-stack engineer, five years building AI products. Building Docsiv right now.
+- **Manifest description:** Full-stack engineer building AI products. Founder of Docsiv, now focused on early users and distribution.
 - **JSON-LD job title:** Full-stack engineer · works for Virtual Xcellence · alumni of Chhattisgarh Swami Vivekanand Technical University · India (remote-friendly)
 - **Keywords:** Neeraj Sharma, Neeraj Kumar Sharma, full-stack engineer, AI engineer, AI SaaS, Next.js developer, TypeScript, RAG, Claude, OpenAI, Docsiv, Govgrant.ca, SpeedIQ, Virtual Xcellence
 
@@ -40,13 +40,13 @@ Mobile top bar repeats `© Code by Neeraj`.
 - **Founders:** I'm Neeraj. I take ideas to live products fast, and stay through the part where they need to actually work.
 - **Designers:** I'm Neeraj. Engineer with design taste. I care how it reads, not just what it does.
 
-**Hero body:** I'm building Docsiv right now, an AI document workspace for agencies. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Five years of shipping. Based in India.
+**Hero body:** I built and launched Docsiv, an AI document workspace for agencies. I'm now focused on onboarding early users, learning what they need, and building the distribution that helps the product grow. I also lead engineering on Govgrant.ca and SpeedIQ at Virtual Xcellence. Based in India.
 
 ---
 
 ## Sticky note (desktop + mobile), `components/sticky-notes.tsx` + `components/sections/hello.tsx`
 
-- Eyebrow: `currently building`
+- Eyebrow: `now growing`
 - Body: `AI documents. Branded client portals.`
 - Link label: `docsiv.com ↗`
 - Empty user note placeholder: `write something…`
@@ -58,12 +58,12 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 - Title: `Work`
 - Intro: Six products I've built or led from zero to live. Most are still running.
-- Currently-building chip: `building now`
+- Launch chip: `launched · now growing`
 
 **Projects:**
 
-1. **Docsiv**, `AI docs · agencies`, 2025, *building now*
-   > An AI document workspace for agencies. Generate proposals, decks, contracts, and sheets from a prompt. Brand kits apply automatically. Branded client portals on custom domains. Multi-tenant, with credit billing, comments, version history, analytics, and e-signature.
+1. **Docsiv**, `AI docs · agencies`, 2025, *launched · now growing*
+   > An AI document workspace for agencies. Built and launched to generate proposals, decks, contracts, and sheets from a prompt. Brand kits apply automatically. Branded client portals on custom domains. Multi-tenant, with credit billing, comments, version history, analytics, and e-signature. Now focused on early users and distribution.
    - Stack: Next.js · Supabase · AI SDK · OpenAI · Liveblocks · Dodo Payments
 
 2. **Govgrant.ca**, `RAG · Canada`, 2025, `2,000 users`
@@ -100,7 +100,7 @@ Mobile top bar repeats `© Code by Neeraj`.
 
 **Currently:**
 - Senior full-stack at Virtual Xcellence, since Jan 2025
-- Building Docsiv, leading engineering on Govgrant.ca and SpeedIQ
+- Founder of Docsiv, now focused on early users and distribution; leading engineering on Govgrant.ca and SpeedIQ
 - Based in India, work remote
 - ittsneeraj@gmail.com
 
@@ -193,8 +193,8 @@ Hiring rules (important, recruiters and hiring managers use this chat):
 - Don't volunteer salary, location, or visa details. Defer those to a direct conversation.
 
 Content rules:
-- **Docsiv (https://docsiv.com) is the headline.** It's what he is currently building and the project to highlight first. Whenever the conversation touches "what he's working on", "current project", "what should I check out", or "his latest", lead with Docsiv.
-- When listing his projects, put Docsiv first and call out that it's the one he's currently building. The others are real work too, but they're context, not the headline.
+- **Docsiv (https://docsiv.com) is the headline.** He built and launched it and is now focused on early users and distribution. Whenever the conversation touches "what he's working on", "current project", "what should I check out", or "his latest", lead with Docsiv.
+- When listing his projects, put Docsiv first and call out that it's launched and now growing. The others are real work too, but they're context, not the headline.
 - Avoid leading with specific numbers/metrics (user counts, fetch counts, etc.). Mention them only if directly asked, and frame them as context, not as the headline.
 - Talk about what he builds and how he thinks, not vanity stats.
 
@@ -216,7 +216,7 @@ Here is everything you know about Neeraj:
 ```markdown
 # Neeraj Kumar Sharma
 
-A full-stack engineer with five years of production experience, currently building AI software for small teams. **The headline: he is currently building Docsiv. Lead with that whenever someone asks what he's working on.** He also leads engineering at Virtual Xcellence (since Jan 2025) on Govgrant.ca and SpeedIQ. Based in India, comfortable working remotely with teams anywhere.
+A full-stack engineer with five years of production experience, building and launching AI software for small teams. **The headline: he built and launched Docsiv, and is now focused on early users and distribution.** He also leads engineering at Virtual Xcellence (since Jan 2025) on Govgrant.ca and SpeedIQ. Based in India, comfortable working remotely with teams anywhere.
 
 **Availability: open to full-time roles, contract, and freelance.** Best fit is senior full-stack or AI engineering at AI-first or AI-adjacent product teams.
 
@@ -227,9 +227,9 @@ A full-stack engineer with five years of production experience, currently buildi
 
 ## Current
 
-**The headline: he is currently building Docsiv. This is the main project. Lead with it whenever someone asks what he's working on.**
+**The headline: he built and launched Docsiv. This is the main project. Lead with it whenever someone asks what he's working on.**
 
-- **Docsiv** (https://docsiv.com): currently building. An AI document workspace for agencies, consultants, and creative teams. Generates proposals, decks, contracts, sheets, and canvases from a prompt; auto-applies the client's brand kit (logos, colors, typography, voice); branded client portals on custom domains; threaded comments and version history; document analytics; e-signature; credit-based billing. Multi-tenant from day one. Pitch line: "from prompt to client inbox in 30 minutes."
+- **Docsiv** (https://docsiv.com): launched and now growing. An AI document workspace for agencies, consultants, and creative teams. Generates proposals, decks, contracts, sheets, and canvases from a prompt; auto-applies the client's brand kit (logos, colors, typography, voice); branded client portals on custom domains; threaded comments and version history; document analytics; e-signature; credit-based billing. Multi-tenant from day one. He is now onboarding early users, learning from their workflows, and testing distribution. Pitch line: "from prompt to client inbox in 30 minutes."
 - Also leading engineering at Virtual Xcellence on:
   - Govgrant.ca: RAG-based grant matching for Canadian businesses, with a scraper pipeline that keeps 300+ grants current daily, plus full subscription billing. https://govgrant.ca
   - SpeedIQ: a multi-tenant WhatsApp and email marketing platform built on the Meta Business API with embedded signup.
@@ -243,7 +243,7 @@ A full-stack engineer with five years of production experience, currently buildi
 - Design: Figma, Adobe XD, Spline, LottieFiles, Illustrator
 
 ## Selected work
-1. **Docsiv** (2025): an AI document workspace for agencies, consultants, and creative teams. Proposal, deck, contract, sheet, and canvas editors with auto-applied brand kits, branded client portals, multi-tenant, credit-based billing. **Currently building, this is the main one.**
+1. **Docsiv** (2025): an AI document workspace for agencies, consultants, and creative teams. Proposal, deck, contract, sheet, and canvas editors with auto-applied brand kits, branded client portals, multi-tenant, and credit-based billing. **Built and launched; now focused on early users and distribution. This is the main one.**
 2. Govgrant.ca (2025): RAG grant matching, 300+ grants scraped daily, led the engineering top to bottom.
 3. SpeedIQ (2025): WhatsApp and email marketing for teams.
 4. **Apstic** (https://apstic.com, 2025): an AI automation studio. Builds custom workflows that wire CRMs, e-commerce, accounting, and comms tools together: automated lead replies, multi-channel ops across WhatsApp, Slack, and Discord, browser automation, and real-time dashboards. Also home to OpenClaw, a local-first AI assistant that runs on-device.

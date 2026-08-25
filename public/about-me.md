@@ -1,6 +1,6 @@
 # Hi, I'm Neeraj.
 
-A full-stack engineer building **AI software for small teams**. The kind that needs to keep working long after launch day.
+A full-stack engineer building and launching **AI software for small teams**. The kind that needs to keep working long after launch day.
 
 For five years I've been building production software end to end: **RAG pipelines, multi-tenant SaaS, automation systems**, and the messy real-world workflows where AI either earns its place or gets in the way.
 
@@ -10,7 +10,7 @@ Work I've led has reached **2,000+ users**, lifted recommendation accuracy by **
 
 ## What I'm working on
 
-Currently building **[Docsiv](https://docsiv.com)**, an AI document workspace for agencies, consultants, and creative teams. This is the main thing.
+Built and launched **[Docsiv](https://docsiv.com)**, an AI document workspace for agencies, consultants, and creative teams. I'm now onboarding early users, learning from their workflows, and testing which distribution channels bring in the right teams. This is the main thing.
 
 I also lead engineering at **Virtual Xcellence** on:
 
@@ -35,7 +35,7 @@ Design     Figma · Adobe XD · Spline · LottieFiles · Illustrator
 ## Selected work
 
 ### [Docsiv](https://docsiv.com)
-**An AI document workspace for agencies.** Multi-tenant document creation, white-label client portals on custom domains, AI workflows, document analytics, and credit-based billing.
+**An AI document workspace for agencies.** Built and launched with multi-tenant document creation, white-label client portals on custom domains, AI workflows, document analytics, and credit-based billing. Now focused on early users and distribution.
 *Next.js · TypeScript · Supabase · AI SDK · OpenAI · Liveblocks · Dodo Payments*
 
 ### [Govgrant.ca](https://govgrant.ca)
@@ -65,7 +65,7 @@ Design     Figma · Adobe XD · Spline · LottieFiles · Illustrator
 - **Astonsys**: design system and site redesign for a QA firm
 - **Updoer Technology**: IT services rebrand and web build
 - **PicSafe**: AI reverse image search for unauthorised photo usage
-- **Apstic**: automation studio platform *(launching soon)*
+- **Apstic**: automation studio platform
 - **Trekova**: travel marketplace *(in progress)*
 
 ---
