@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CASE_STUDIES, LINKS } from "@/components/portfolio/data";
 import { ThemeToggle } from "@/components/portfolio/theme-toggle";
+import { Loader } from "@/components/portfolio/loader";
+import { Pet } from "@/components/portfolio/pet";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,6 +31,8 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <main className="pm-case-shell min-h-dvh">
+      <Loader />
+      <Pet />
       <div className="mx-auto w-full max-w-[900px] px-6 pb-24 pt-8 sm:px-10 sm:pt-12">
         <header className="flex items-center justify-between border-b border-[var(--v2-line)] pb-5">
           <Link href="/#work" className="text-[14px] text-[var(--v2-fg-soft)]"><span className="v2-link">← All product work</span></Link>

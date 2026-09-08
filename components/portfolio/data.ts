@@ -18,6 +18,13 @@ export const PROFILE = {
     "Product-minded engineer and founder with five years of experience taking B2B SaaS from ambiguous customer problems to production. I combine discovery, prioritization, and product judgment with enough technical depth to ship alongside engineering teams.",
 };
 
+export const INTRO = {
+  name: PROFILE.name,
+  role: "a technical product manager building AI products",
+  before:
+    "For the past five years, I've taken B2B SaaS from ambiguous customer problems to production - combining product judgment with hands-on technical depth.",
+};
+
 export const METRICS = [
   { value: "5 years", label: "building products" },
   { value: "2,000+", label: "users served" },
@@ -170,14 +177,32 @@ export type Work = {
   image?: string;
 };
 
-export const SELECTED_WORK: Work[] = CASE_STUDIES.map((study) => ({
-  name: study.name,
-  year: study.year,
-  blurb: study.summary,
-  href: `/work/${study.slug}`,
-  metric: study.metric,
-  image: study.image,
-}));
+export const SELECTED_WORK: Work[] = [
+  ...CASE_STUDIES.map((study) => ({
+    name: study.name,
+    year: study.year,
+    blurb: study.summary,
+    href: `/work/${study.slug}`,
+    metric: study.metric,
+    image: study.image,
+  })),
+  {
+    name: "Trade Business School",
+    year: "2023",
+    blurb:
+      "Multi-tenant SaaS for trades education, including course delivery, AI document processing, and student management.",
+    metric: "200 students",
+    image: "/projects/tbs.png",
+  },
+  {
+    name: "Apstic",
+    year: "2025",
+    blurb:
+      "An AI automation studio connecting CRMs, commerce, accounting, and communication workflows.",
+    href: "https://apstic.com",
+    image: "/projects/apstic.png",
+  },
+];
 
 export const EXPERIENCE = [
   {
@@ -213,12 +238,44 @@ export const PRODUCT_PRACTICE = [
   { number: "04", title: "Learn from production", text: "Instrument the workflow, talk to users, and use what happens after launch to make the next decision better." },
 ];
 
+export const SERVICES = [
+  "Customer discovery",
+  "0 to 1 product strategy",
+  "Roadmaps & prioritization",
+  "Requirements & workflows",
+  "AI product delivery",
+  "Technical leadership",
+];
+
+export const STACK = [
+  "Next.js · React · TypeScript",
+  "Node.js · Python · SQL",
+  "PostgreSQL · Supabase",
+  "OpenAI · Claude · Gemini",
+  "RAG · AI agents · n8n",
+  "Vercel · Railway · Docker",
+  "Stripe · ChargeBee · Dodo",
+];
+
+export type NowItem = { text: string; live?: boolean; href?: string };
+export const NOW: NowItem[] = [
+  { text: "Onboarding early agencies to Docsiv", live: true },
+  { text: "Talking to users and sharpening product-market fit", live: true },
+  { text: "Testing distribution and the next product bets", live: true },
+  { text: "Shipping new Docsiv features every week" },
+  { text: "Writing product case studies", href: "/work/docsiv" },
+  { text: "Open to Technical Product Manager and AI Product Manager roles" },
+  { text: "Living in Bangalore and drinking too much filter coffee ☕" },
+];
+export const NOW_UPDATED = "Updated September 2026";
+
 export const CONTACT = [
   { label: "Email", href: "mailto:ittsneeraj@gmail.com", handle: "ittsneeraj@gmail.com" },
   { label: "LinkedIn", href: LINKS.linkedin, handle: "in/neer4j" },
   { label: "GitHub", href: LINKS.github, handle: "@NEER4J" },
   { label: "X", href: LINKS.x, handle: "@NEER4J__" },
+  { label: "Resume", href: LINKS.resume, handle: "PDF" },
 ];
 
 export const CALL = "https://cal.com/neeraj-sharma/30min";
-export const FOOTER_NOTE = "Bangalore, India · Open to product conversations";
+export const FOOTER_NOTE = "Still shipping.";

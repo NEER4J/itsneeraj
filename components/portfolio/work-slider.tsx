@@ -128,8 +128,8 @@ function WorkCard({ work, priority }: { work: Work; priority?: boolean }) {
   return work.href ? (
     <a
       href={work.href}
-      target="_blank"
-      rel="noreferrer"
+      target={work.href.startsWith("/") ? undefined : "_blank"}
+      rel={work.href.startsWith("/") ? undefined : "noreferrer"}
       className={cls}
       draggable={false}
     >
