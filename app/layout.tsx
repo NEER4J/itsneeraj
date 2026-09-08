@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Sans, Instrument_Serif, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme-script";
-import { META, PROJECTS } from "@/lib/content";
+import { CASE_STUDIES, CONTACT } from "@/components/portfolio/data";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -29,10 +29,10 @@ const pressStart = Press_Start_2P({
 
 const SITE_URL = "https://itsneeraj.com";
 const SITE_NAME = "Neeraj Sharma";
-const TITLE_DEFAULT = "Neeraj Sharma · full-stack engineer, AI products";
+const TITLE_DEFAULT = "Neeraj Sharma · Technical Product Manager for AI and SaaS";
 const TITLE_TEMPLATE = "%s · Neeraj Sharma";
 const DESCRIPTION =
-  "Full-stack engineer building AI products. Founder of Docsiv, now focused on early users and distribution, and lead engineer on Govgrant.ca and SpeedIQ.";
+  "Technical Product Manager and product-minded engineer building AI and B2B SaaS from customer problem to production. Founder of Docsiv.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -49,8 +49,13 @@ export const metadata: Metadata = {
   keywords: [
     "Neeraj Sharma",
     "Neeraj Kumar Sharma",
+    "Technical Product Manager",
+    "AI Product Manager",
+    "B2B SaaS Product Manager",
+    "product strategy",
+    "product discovery",
+    "0 to 1 products",
     "full-stack engineer",
-    "AI engineer",
     "AI SaaS",
     "Next.js developer",
     "TypeScript",
@@ -115,7 +120,7 @@ export const viewport: Viewport = {
 
 function PersonJsonLd() {
   const sameAs = [
-    ...META.links.map((l) => l.href),
+    ...CONTACT.filter((item) => !item.href.startsWith("mailto:")).map((item) => item.href),
     "https://docsiv.com",
     "https://govgrant.ca",
     "https://apstic.com",
@@ -133,14 +138,17 @@ function PersonJsonLd() {
     "OpenAI",
     "Anthropic Claude",
     "Multi-tenant SaaS",
+    "Product Management",
+    "Product Strategy",
+    "Customer Discovery",
     "Product engineering",
   ];
 
-  const works = PROJECTS.filter((p) => p.url).map((p) => ({
+  const works = CASE_STUDIES.map((p) => ({
     "@type": "CreativeWork",
     name: p.name,
     url: p.url,
-    description: p.story.split(".")[0] + ".",
+    description: p.summary,
   }));
 
   const data = {
@@ -150,13 +158,13 @@ function PersonJsonLd() {
     alternateName: "Neeraj Sharma",
     url: SITE_URL,
     image: `${SITE_URL}/opengraph-image.png`,
-    jobTitle: "Full-stack engineer",
+    jobTitle: "Technical Product Manager",
     worksFor: {
       "@type": "Organization",
       name: "Virtual Xcellence",
     },
     description: DESCRIPTION,
-    email: `mailto:${META.email}`,
+    email: "mailto:ittsneeraj@gmail.com",
     sameAs,
     knowsAbout,
     knowsLanguage: ["English", "Hindi"],

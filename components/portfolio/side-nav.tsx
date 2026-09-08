@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 const ITEMS = [
   { id: "hello", label: "Intro" },
-  { id: "work", label: "Work" },
+  { id: "proof", label: "Proof" },
+  { id: "work", label: "Cases" },
+  { id: "approach", label: "Approach" },
   { id: "about", label: "Experience" },
-  { id: "now", label: "Now" },
   { id: "contact", label: "Contact" },
 ];
 

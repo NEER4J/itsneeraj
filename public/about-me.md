@@ -1,101 +1,42 @@
-# Hi, I'm Neeraj.
+# Neeraj Kumar Sharma
 
-A full-stack engineer building and launching **AI software for small teams**. The kind that needs to keep working long after launch day.
+Neeraj is a Technical Product Manager, product-minded engineer, and founder building AI and B2B SaaS products from customer problem to production.
 
-For five years I've been building production software end to end: **RAG pipelines, multi-tenant SaaS, automation systems**, and the messy real-world workflows where AI either earns its place or gets in the way.
+## Product focus
 
-Work I've led has reached **2,000+ users**, lifted recommendation accuracy by **40%**, and replaced **95%** of one client's manual work.
+- AI and B2B SaaS
+- Customer discovery and workflow analysis
+- Zero-to-one product strategy
+- Roadmaps, requirements, and prioritization
+- Technical product delivery
+- Product analytics and learning loops
 
----
+## Selected product work
 
-## What I'm working on
+### Docsiv
 
-Built and launched **[Docsiv](https://docsiv.com)**, an AI document workspace for agencies, consultants, and creative teams. I'm now onboarding early users, learning from their workflows, and testing which distribution channels bring in the right teams. This is the main thing.
+Founder and Product Lead. Docsiv is an AI document workspace for agencies that connects document creation, brand context, client portals, sharing, signing, analytics, and billing. Neeraj shaped the product thesis, translated agency workflows into a roadmap, worked across design and engineering, launched the product, and now uses early-user conversations to guide distribution and product decisions.
 
-I also lead engineering at **Virtual Xcellence** on:
+### Govgrant.ca
 
-- **[Govgrant.ca](https://govgrant.ca)**: RAG-based grant matching for Canadian businesses.
-- **SpeedIQ**: a multi-tenant WhatsApp and email marketing platform.
-
----
-
-## Stack I reach for
-
-```
-Frontend   Next.js · React · TypeScript · Tailwind · Shadcn UI · Framer Motion · GSAP
-Backend    Node.js · Express · Python · PostgreSQL · Supabase
-AI         OpenAI · Claude · Gemini · RAG · LangChain · Vercel AI SDK · n8n
-Infra      Vercel · Netlify · Railway · Docker · CI/CD
-Payments   Stripe · ChargeBee · Dodo Payments · Razorpay
-Design     Figma · Adobe XD · Spline · LottieFiles · Illustrator
-```
-
----
-
-## Selected work
-
-### [Docsiv](https://docsiv.com)
-**An AI document workspace for agencies.** Built and launched with multi-tenant document creation, white-label client portals on custom domains, AI workflows, document analytics, and credit-based billing. Now focused on early users and distribution.
-*Next.js · TypeScript · Supabase · AI SDK · OpenAI · Liveblocks · Dodo Payments*
-
-### [Govgrant.ca](https://govgrant.ca)
-**AI grant discovery for Canadian businesses.** RAG-based matching with smart filters, an automated scraper that keeps 300+ grants current daily, and full subscription billing.
-*Next.js · TypeScript · Supabase · OpenAI · RAG · Stripe · ChargeBee · 2,000+ users*
+Led engineering for a Canadian grant-discovery platform serving more than 2,000 users. The product combines RAG-based recommendations with an automated pipeline that refreshes more than 300 grants daily, plus authentication, subscriptions, billing, and administration.
 
 ### SpeedIQ
-**WhatsApp and email marketing for teams.** Broadcasts, chatbots, live chat, and campaign analytics, built on the Meta Business API with embedded signup.
-*Next.js · Supabase · Meta Business API · webhooks*
 
-### Trade Business School
-**A multi-tenant SaaS for trades education.** Course delivery, AI document processing, and student management. Currently serving around 200 students.
-*Next.js · AI APIs · multi-tenant architecture*
+Led major product delivery for a multi-tenant WhatsApp and email marketing platform. The product connects onboarding, broadcasts, chatbot automation, live chat, and campaign analytics and has delivered more than 100,000 messages.
 
-### AI For Trades
-**A SaaS platform for trades businesses.** Quote builder, customer surveys, checkout flows, and multi-level logins for tradespeople and their clients.
-*Next.js · Supabase · Stripe · AI chatbot*
+## Experience
 
-### UK Postcode API
-**An address lookup API with usage analytics.** Auth, rate limiting, and a clean dashboard on top of an optimised address-search experience.
-*Node.js · PostgreSQL · API gateway*
+- 2025-Present: Founder and Product Lead, Docsiv
+- 2025-Present: Lead Engineer for AI Products, Virtual Xcellence
+- 2022-2025: Full-stack Developer and Project Manager, NJ Designpark
+- 2020-2022: Independent Product Engineer
+- 2020-2023: B.Tech in Computer Science, Chhattisgarh Swami Vivekanand Technical University
 
----
+## Contact
 
-## Also shipped
-
-- **Astonsys**: design system and site redesign for a QA firm
-- **Updoer Technology**: IT services rebrand and web build
-- **PicSafe**: AI reverse image search for unauthorised photo usage
-- **Apstic**: automation studio platform
-- **Trekova**: travel marketplace *(in progress)*
-
----
-
-## How I work
-
-I get the smallest useful version of an idea in front of real users early, then refine from what they actually do.
-
-I treat **AI features like product features**. Not magic, not hype. They have to be reliable, observable, and worth the wait.
-
-I've stayed close to the whole loop on every project I've led: design, architecture, build, deploy, iterate. Equally at home as the only engineer in the room or sharing the work with a team.
-
----
-
-## A bit of background
-
-Started freelancing in **2020** while still in college, building for clients across industries with Django, Next.js, Node, and payment integrations across Stripe, Razorpay, and PayPal.
-
-Joined **NJ Designpark in 2022** to lead full-stack and PM work: built and launched Trade Business School, integrated OpenAI and Claude into client support flows (cut tickets by 40%), built a domain monitor, the UK Postcode API, and a custom review system that saved one client around $2k a month.
-
-Now at **Virtual Xcellence** since Jan 2025, focused entirely on AI SaaS.
-
-**B.Tech in Computer Science**, Chhattisgarh Swami Vivekanand Technical University, 2020–2023.
-
----
-
-## Let's talk
-
-Open to **AI and SaaS work**, freelance projects, or a quiet chat about something you're building.
-
-**[Grab a 30-minute slot →](https://cal.com/neeraj-sharma/30min)**
-
-**[ittsneeraj@gmail.com](mailto:ittsneeraj@gmail.com)** · [itsneeraj.com](https://itsneeraj.com) · [LinkedIn](https://linkedin.com/in/neer4j) · [GitHub](https://github.com/NEER4J) · [X](https://x.com/NEER4J__) · [Instagram](https://instagram.com/)
+- Website: https://itsneeraj.com
+- Email: ittsneeraj@gmail.com
+- LinkedIn: https://linkedin.com/in/neer4j
+- GitHub: https://github.com/NEER4J
+- Book a call: https://cal.com/neeraj-sharma/30min
