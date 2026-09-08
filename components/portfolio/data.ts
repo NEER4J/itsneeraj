@@ -7,7 +7,7 @@ export const LINKS = {
   docsiv: "https://docsiv.com",
   govgrant: "https://govgrant.ca",
   speediq: "https://app.speediq.ai/",
-  resume: "/Neeraj_Sharma_Technical_Product_Manager_Resume.pdf",
+  resume: "/Neeraj_Kumar_Sharma_Product_Manager.pdf",
 };
 
 export const PROFILE = {
