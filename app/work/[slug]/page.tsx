@@ -60,6 +60,11 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
 
           <CaseSection label="the problem"><p>{study.problem}</p></CaseSection>
+          <CaseSection label="the research">
+            <ul className="flex flex-col">
+              {study.research.map((item) => <li key={item} className="border-t border-[var(--v2-line)] py-3 text-[15px] leading-[1.65] first:border-t-0 first:pt-0">{item}</li>)}
+            </ul>
+          </CaseSection>
           <CaseSection label="my role and scope"><p>{study.role}</p></CaseSection>
           <CaseSection label="key product decisions">
             <ol className="flex flex-col">
@@ -73,6 +78,14 @@ export default async function CaseStudyPage({ params }: Props) {
             <ListSection label="what shipped" items={study.shipped} />
             <ListSection label="outcomes" items={study.outcomes} />
           </div>
+
+          <CaseSection label="next success signals">
+            <ul className="flex flex-col">
+              {study.nextMetrics.map((item) => <li key={item} className="border-t border-[var(--v2-line)] py-3 text-[15px] leading-[1.65] first:border-t-0 first:pt-0">{item}</li>)}
+            </ul>
+          </CaseSection>
+
+          <CaseSection label="what I learned"><p>{study.learning}</p></CaseSection>
 
           <CaseSection label="what this demonstrates">
             <ul className="flex flex-col">

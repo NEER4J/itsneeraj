@@ -119,6 +119,11 @@ function WorkCard({ work, priority }: { work: Work; priority?: boolean }) {
           {work.metric ?? work.year}
         </span>
       </div>
+      {work.href?.startsWith("/work/") && (
+        <span className="mt-3 inline-flex items-center gap-1.5 border border-[var(--v2-line-strong)] px-2.5 py-1.5 text-[13px] text-[var(--v2-fg)] transition-colors group-hover:border-[var(--v2-fg-soft)]">
+          Read case study <span aria-hidden>→</span>
+        </span>
+      )}
     </>
   );
 

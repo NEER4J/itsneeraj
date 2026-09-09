@@ -42,10 +42,13 @@ export type CaseStudy = {
   metric: string;
   summary: string;
   problem: string;
+  research: string[];
   role: string;
   decisions: string[];
   shipped: string[];
   outcomes: string[];
+  nextMetrics: string[];
+  learning: string;
   demonstrates: string[];
 };
 
@@ -62,6 +65,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       "An AI document workspace that helps agencies create, brand, share, sign, and track client deliverables in one workflow.",
     problem:
       "Agencies were producing proposals, reports, contracts, decks, and spreadsheets across disconnected tools. The work was repeatedly copied, reformatted, emailed, and tracked by hand, creating an inconsistent client experience.",
+    research: [
+      "Observed the same client-delivery friction repeat across agencies: too many tools, inconsistent branding, and fragmented approvals.",
+      "Framed the primary user as an agency or service team responsible for the quality of a client-facing deliverable, not simply someone looking for an AI writing tool.",
+      "Research pointed to the connected workflow and branded client experience as the product wedge: create, brand, share, sign, and track.",
+    ],
     role:
       "As founder, I shaped the product thesis, translated agency workflows into a roadmap, worked with designers and developers, built core product systems, launched the product, and now use early-user conversations to guide distribution and the next product decisions.",
     decisions: [
@@ -81,6 +89,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Established a weekly shipping and early-customer learning loop",
       "Created a coherent product platform instead of a collection of isolated AI features",
     ],
+    nextMetrics: [
+      "Time from brief to first client-ready draft",
+      "Draft-to-share and share-to-sign conversion",
+      "Weekly active agency workspaces and repeat client delivery",
+      "Generated-content quality and client-portal reliability as guardrails",
+    ],
+    learning:
+      "The strongest product story is not AI writing by itself. It is a calmer client workflow that connects the work before and after the document is created.",
     demonstrates: [
       "Customer problem framing",
       "0 to 1 product strategy",
@@ -100,6 +116,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       "A Canadian grant-discovery platform that matches businesses with relevant funding programs using RAG-based recommendations.",
     problem:
       "Canadian businesses had to search fragmented government sources, interpret eligibility criteria, and repeatedly check whether programs were still open. The product needed to make discovery faster without presenting stale or irrelevant opportunities.",
+    research: [
+      "Mapped the journey from a business need to a relevant grant, including search, eligibility interpretation, freshness, and next action.",
+      "Treated stale or weakly grounded recommendations as a trust problem, not only a model-quality problem.",
+      "Used the operational reality of daily grant updates to shape the product: ingestion, admin controls, and recommendation quality had to work together.",
+    ],
     role:
       "I led engineering across the recommendation experience and SaaS platform, turning the product requirements into a reliable matching workflow with authentication, subscriptions, admin controls, and an automated grant pipeline.",
     decisions: [
@@ -119,6 +140,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Kept the grant catalogue current through a daily automated pipeline",
       "Connected AI recommendations to a usable, monetizable SaaS workflow",
     ],
+    nextMetrics: [
+      "Relevant-match click-through and saved-grant rate",
+      "Fresh-grant coverage and stale-listing rate",
+      "Match-to-application intent and subscription conversion",
+      "Recommendation quality and explanation usefulness as guardrails",
+    ],
+    learning:
+      "Freshness, explainability, and admin tooling are visible parts of the user experience. They cannot be treated as background infrastructure behind an AI feature.",
     demonstrates: [
       "AI product judgment",
       "Platform thinking",
@@ -138,6 +167,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       "A multi-tenant marketing platform for WhatsApp and email campaigns, automation, live chat, and campaign analytics.",
     problem:
       "Marketing teams needed to manage customer conversations, broadcasts, automation, and reporting across channels without stitching together separate tools or losing operational visibility.",
+    research: [
+      "Mapped how teams moved between broadcasts, WhatsApp conversations, chatbot automation, live chat, and reporting.",
+      "Identified the product boundary as campaigns plus conversations, rather than exposing channel-specific infrastructure to operators.",
+      "Treated onboarding and third-party API constraints as part of the customer journey, especially for WhatsApp Business setup.",
+    ],
     role:
       "I helped translate multi-channel marketing workflows into a production platform and owned major technical delivery across onboarding, messaging, automation, analytics, and Meta Business API integration.",
     decisions: [
@@ -157,6 +191,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Created one operating surface for campaign execution and customer conversations",
       "Turned a complex third-party API workflow into a team-facing SaaS product",
     ],
+    nextMetrics: [
+      "Time from signup to first successful campaign",
+      "Delivery quality, failure reasons, and cost per message",
+      "Repeat campaign rate and active team usage",
+      "Conversation resolution and handoff quality as guardrails",
+    ],
+    learning:
+      "When a product sits on top of a complex API, onboarding, reliability, and failure visibility are product surfaces. The abstraction only works when teams can trust what happens underneath.",
     demonstrates: [
       "Workflow design",
       "API product delivery",
